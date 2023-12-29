@@ -1,5 +1,5 @@
 
-import Subheader from "../../components/Subheader";
+import Subheader from "../../../components/Subheader";
 
 
 export default function Posts() {
