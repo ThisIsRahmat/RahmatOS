@@ -151,7 +151,7 @@ You can get in touch with me on:
 
 
 
-<li key={socialLink.id} className=" hover:text-[#3f2b90] flex-inline flex  md:text-2xl text-lg">
+<li key={socialLink.name} className=" hover:text-[#3f2b90] flex-inline flex  md:text-2xl text-lg">
   <Link href={socialLink.href}>
   
   <div className="flex-inline sm:text-2xl text-xl flex underline underline-offset-2">
