@@ -11,7 +11,7 @@ export default function DaysGo() {
         100 Days Of Go
      </h3>
 
-     <hr className="border-[#3f2b90]"/>
+     {/* <hr className="border-[#3f2b90]"/> */}
    
          </div>
  
