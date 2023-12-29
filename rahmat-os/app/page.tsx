@@ -88,7 +88,7 @@ This is my corner of the internet for talking about my technichal and non-techni
       <div className="flex flex-wrap gap-8 justify-center py-4">
       {projects.map((project) => (
         <div
-          key={project.id}
+          key={project.name}
           className=" flex flex-col border border-gray-700 shadow-lg rounded-lg overflow-hidden w-96 transition-transform duration-300 hover:scale-105"
         >
 
