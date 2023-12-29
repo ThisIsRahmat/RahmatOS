@@ -50,7 +50,7 @@ export default function Navbar() {
           <div key={nav.name}>
             <Link
               href={nav.href}
-              className="text-[#3f2b90] font-semibold dark:text-white"
+              className="hover:border-b-2 hover:border-[#3f2b90] text-[#3f2b90] font-semibold dark:text-white"
             >
               {nav.name}
             </Link>
