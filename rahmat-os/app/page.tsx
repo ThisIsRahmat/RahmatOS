@@ -66,7 +66,7 @@ export default function Home() {
 </div> */}
 
 <h1 className=" text-slate-800 text-xl md:text-2xl mx-auto m-6">
-This is my corner of the internet for talking about my technichal and non-technichal interests, unbound to any algorithim.
+This is my corner of the internet for talking about my technical and non-technical interests, unbound to any algorithim.
   </h1>
 
   <button className=" w-full border-black bg-[#ab9ef2] text-black rounded-lg border text-lg text-light ">
