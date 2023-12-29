@@ -17,7 +17,7 @@ const imageVariants = {
 };
 
 
-const navigation : {name: string, name:string}[] = [
+const navigation : {name: string, href:string}[] = [
  
     // {name:"About", href:"/about"},
     // {name:"Blog", href:"/blog"},
