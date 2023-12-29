@@ -2,7 +2,7 @@
 "use client"
 
 import Link from 'next/link';
-import { IconBrandGithub, IconMail, IconFileDescription } from '@tabler/icons-react';
+// import { IconBrandGithub, IconMail, IconFileDescription } from '@tabler/icons-react';
 
 import { MoveUpRight  } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
