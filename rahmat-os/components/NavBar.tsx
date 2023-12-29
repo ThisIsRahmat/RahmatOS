@@ -19,12 +19,11 @@ const imageVariants = {
 
 const navigation : {name: string, href:string}[] = [
  
-    // {name:"About", href:"/about"},
+
     // {name:"Blog", href:"/blog"},
     // {name:"Bookmarks", href:"/bookmarks"},
     // {name:"Books", href:"/books"},
-    // {name:"Notes", href:"/notes"},
-    // {name:"Contact", href:"/contact", icon: <AtSign/>},
+    {name:"#100DaysOfGolang", href:"/notes/DaysGo"},
     // {name:"Projects", href:"/projects", icon: <Binary/>}
   ]
 
@@ -39,7 +38,7 @@ export default function Navbar() {
       <Link href="/">
         
         <img
-          src="./me.jpg"
+          src="./me_nobg.png"
           alt="rahmat"
           className="block mx-auto sm:h-20 sm:w-full h-1/2 w-1/2 overflow-hidden rounded-full"
         />
