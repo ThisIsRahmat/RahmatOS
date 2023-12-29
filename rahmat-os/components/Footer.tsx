@@ -17,7 +17,7 @@ export default function Footer() {
     <footer className="md:mb-20 mb-10 pt-20  top-[100vh]">
 
 
-<nav className="  flex items-center border-t-2  justify-between  md:justify-between">
+<nav className="  flex items-center border-t-2 border-[#3f2b90]  justify-between  md:justify-between">
     {/* <nav className="  border-[#247c5c] border-b-4 py-2 text-center lg:flex lg:justify-between max-w-7xl mx-auto"> */}
   {/* Social Media Links */}
     

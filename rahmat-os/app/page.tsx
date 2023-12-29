@@ -69,6 +69,11 @@ export default function Home() {
 This is my corner of the internet for talking about my technichal and non-technichal interests, unbound to any algorithim.
   </h1>
 
+  <button className=" w-full border-black bg-[#ab9ef2] text-black rounded-lg border text-lg text-light ">
+   I am currently completing #100DaysOfGo which you can follow <Link href="/notes/DaysGo" className="underline"> here </Link>
+
+  </button>
+
 
   {/* Currently Reading */}
 
@@ -76,7 +81,7 @@ This is my corner of the internet for talking about my technichal and non-techni
 
   {/* Projects */}
 
-<h2 className="text-xl uppercase"> Projects </h2>
+<h2 className="text-xl uppercase pt-2"> Projects </h2>
 
 <div>
 
