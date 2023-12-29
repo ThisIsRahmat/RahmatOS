@@ -1,11 +1,11 @@
 'use client'
 
-import { Disclosure } from "@headlessui/react";
+// import { Disclosure } from "@headlessui/react";
 
 
 import Link from 'next/link';
-import { motion } from "framer-motion";
-import { useState } from 'react';
+
+
 
 import Profile from "./Profile";
 
