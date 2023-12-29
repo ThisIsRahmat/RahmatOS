@@ -10,5 +10,8 @@ export default function SliceSimulatorPage() {
     // <SliceSimulator
     //   sliceZone={(props) => <SliceZone {...props} components={components} />}
     // />
+
+    <>
+    </>
   );
 }
