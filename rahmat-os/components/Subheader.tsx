@@ -10,7 +10,7 @@ interface SubtitleProps {
 <div>
 <div className="grid sm:grid-cols-2  gap-0 grid-cols-1 sm:pb-6">
   <div className="text-center ">
-  <h2 className=" sm:w-1/3 w-full  sm:text-[102px] text-[60px] font-bold leading-10 inset-x-0 bottom-0 pr-8   mr-2">
+  <h2 className=" sm:w-1/2 w-full  sm:text-[102px] text-[60px] font-bold leading-10 inset-x-0 bottom-0 pr-8   mr-2">
     {title}
   </h2>
   </div>

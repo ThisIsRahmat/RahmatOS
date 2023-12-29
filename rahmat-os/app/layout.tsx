@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={bricolagegrotesque.className}>     <Navbar/>
+      <body className="{bricolagegrotesque.className}  bg-[#f5f2ff]">     <Navbar/>
   
   <main className=" max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 mt-5">{children}<Footer/></main></body>
     </html>
