@@ -20,10 +20,10 @@ const imageVariants = {
 const navigation = [
  
     // {name:"About", href:"/about"},
-    {name:"Blog", href:"/blog"},
+    // {name:"Blog", href:"/blog"},
     // {name:"Bookmarks", href:"/bookmarks"},
-    {name:"Books", href:"/books"},
-    {name:"Notes", href:"/notes"},
+    // {name:"Books", href:"/books"},
+    // {name:"Notes", href:"/notes"},
     // {name:"Contact", href:"/contact", icon: <AtSign/>},
     // {name:"Projects", href:"/projects", icon: <Binary/>}
   ]
