@@ -16,12 +16,17 @@ interface SubtitleProps {
       //      </div>
 
 
-      <div className="flex flex-wrap">
-      <h2 className="w-full pt-8 sm:text-[102px] text-[60px] font-bold leading-10 inset-x-0 bottom-0 pr-8 text-text-lvl-1 lg:w-1/3 text-center">{title}</h2>
-      <div className="w-full text-text-lvl-2 mt-2 lg:w-2/3 lg:mt-[0px]">
-     {description}
+<div className="grid sm:grid-cols-2  gap-0 grid-cols-1">
+  <div className="w-1/2">
+  <h2 className=" w-1/2 pt-2 sm:text-[102px] text-[60px] font-bold leading-10 inset-x-0 bottom-0 pr-8 text-text-lvl-1   mr-2">
+    {title}
+  </h2>
+  </div>
+  <div className="w-full  text-start    lg:w-2/3 py-4 sm:py-2 ">
+    {description}
+  </div>
 </div>
-      </div>
+
     );
   }
   

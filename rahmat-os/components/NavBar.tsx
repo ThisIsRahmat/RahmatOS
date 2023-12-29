@@ -20,8 +20,8 @@ const imageVariants = {
 const navigation = [
  
     // {name:"About", href:"/about"},
-    {name:"Articles", href:"/articles"},
-    {name:"Bookmarks", href:"/bookmarks"},
+    {name:"Blog", href:"/blog"},
+    // {name:"Bookmarks", href:"/bookmarks"},
     {name:"Books", href:"/books"},
     {name:"Notes", href:"/notes"},
     // {name:"Contact", href:"/contact", icon: <AtSign/>},

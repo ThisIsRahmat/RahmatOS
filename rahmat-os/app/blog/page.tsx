@@ -7,7 +7,7 @@ export default function Articles() {
 
         <div className="flex min-h-screen flex-col   ">
 
-            <Subheader title="Articles" description="These are my ongoing projects"/>
+            <Subheader title="Blog" description="These are longer-form mostly technichal details on Golang, Postgress and things I am learning whilst building my projects"/>
        
    
          </div>

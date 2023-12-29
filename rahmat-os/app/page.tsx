@@ -69,9 +69,14 @@ export default function Home() {
 This is my corner of the internet for talking about my technichal and non-technichal interests, unbound to any algorithim.
   </h1>
 
+
+  {/* Currently Reading */}
+
+{/* <h2 className="text-xl uppercase"> Currently Reading </h2> */}
+
   {/* Projects */}
 
-<h2 className="text-xl uppercase"> Latest Projects </h2>
+<h2 className="text-xl uppercase"> Projects </h2>
 
 <div>
 
@@ -123,6 +128,10 @@ This is my corner of the internet for talking about my technichal and non-techni
     </div>
       </div>
 
+{/* Blog Post */}
+
+
+{/* <h2 className="text-xl uppercase"> Latest Blog </h2> */}
 
 {/* Contact */}
 

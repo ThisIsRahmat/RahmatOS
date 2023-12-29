@@ -7,7 +7,7 @@ export default function Books() {
 
         <div className="flex min-h-screen flex-col   ">
 
-            <Subheader title="Books" description="These are my ongoing projects"/>
+            <Subheader title="Books" description="This a public journal of the books that I have read or want to read"/>
        
    
          </div>
