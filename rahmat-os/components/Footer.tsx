@@ -4,9 +4,9 @@
 import Link from 'next/link';
 // import { IconBrandGithub, IconMail, IconFileDescription } from '@tabler/icons-react';
 
-import { MoveUpRight  } from 'lucide-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-solid-svg-icons'
+// import { MoveUpRight  } from 'lucide-react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faGithub } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Footer() {
