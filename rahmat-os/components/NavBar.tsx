@@ -23,7 +23,7 @@ const navigation : {name: string, href:string}[] = [
     // {name:"Blog", href:"/blog"},
     // {name:"Bookmarks", href:"/bookmarks"},
     // {name:"Books", href:"/books"},
-    {name:"#100DaysOfGolang", href:"/notes/DaysGo"},
+    // {name:"#100DaysOfGolang", href:"/notes/DaysGo"},
     // {name:"Projects", href:"/projects", icon: <Binary/>}
   ]
 

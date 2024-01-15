@@ -11,8 +11,8 @@ const socialLinks = [
 
 
 const projects = [
-  {name: "OpenSaasFinder", description:"AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://github.com/ThisIsRahmat"},
-  {name: "StudyWiz", description:"A directory for discovering popular alternatives to paid Saas products.", link: "mailto:thisisrahmat@gmail.com"},
+  {name: "StudyWiz", description:"AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://github.com/ThisIsRahmat"},
+  {name: "OpenSaasFinder", description:"A directory for discovering popular alternatives to paid Saas products.", link: "mailto:thisisrahmat@gmail.com"},
 
 ]
 
@@ -69,10 +69,10 @@ export default function Home() {
 This is my corner of the internet for talking about my technical and non-technical interests, unbound to any algorithim.
   </h1>
 
-  <button className=" w-full border-black bg-[#ab9ef2] text-black rounded-lg border text-lg text-light ">
+  {/* <button className=" w-full border-black bg-[#ab9ef2] text-black rounded-lg border text-lg text-light ">
    I am currently completing #100DaysOfGo which you can follow <Link href="/notes/DaysGo" className="underline"> here </Link>
 
-  </button>
+  </button> */}
 
 
   {/* Currently Reading */}
