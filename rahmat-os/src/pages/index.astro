@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 projects: [
@@ -17,20 +17,24 @@ projects: [
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-	<!---	<Header /> --->
+	<Header /> 
 		<main>
-			<h1> Hi, I'm Rahmat!</h1>
+			<h1> Hi, I'm Rahmat! 👋🏾</h1>
 			<p>
 				  I am an engineer and occassional technichal instructor based in  England🇬🇧
 			</p>
 				<p>
-				  I enjoy tinkering and building software and I am currently building my first Saas business <span class="italic">(which I plan on writing about when I have launched)</span>
+				  I enjoy building software and I am currently building my first Saas business <span class="italic">(which I plan on writing about when I have launched)</span>
 				  			</p>
 							<!--
 				  <span> You can read more about this in my <Link> Goals for 2024 </Link> </span> --->
 
-			<p class="">
+			<!--	<p class="">
 			I code primarily with <span class="underline decoration-indigo-500">Golang</span> and <span class="underline decoration-blue-500">Javascript/Typescript</span> and I am currently in love with the React framework Astro. 
+			</p>  --->
+
+			<p>
+This is my corner of the internet for talking about my technical and non-technical interests, unbound to any algorithim.
 			</p>
 		
 					<h4> Projects</h4>
