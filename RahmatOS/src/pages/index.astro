@@ -1,21 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import { Mail, Github } from 'lucide-react';
 import { LOGO_IMAGE, SITE } from "@config";
 const posts = await getCollection("blog");
 
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const projects = [
   { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
   { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" }
@@ -26,7 +17,7 @@ const socials = [
    {name: "Email", link: "mailto:thisisrahmat@gmail.com", icon: {Mail} }
   
 ]
-const socialCount = SOCIALS.filter(social => social.active).length;
+
 ---
 
 <Layout>
