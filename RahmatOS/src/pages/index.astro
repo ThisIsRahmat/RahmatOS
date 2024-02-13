@@ -78,31 +78,23 @@ This is my corner of the internet for talking about my technical and non-technic
           <h2 class="text-2xl font-semibold tracking-wide">Projects</h2>
 
 
-
-                      <div class="flex flex-col  gap4 space-y-10 py-4">
-
-        {projects.map(({ name, description, link }, index) => (
-          <div key={index}
-          
-             class=" flex flex-col  shadow-lg border border-black  rounded-lg overflow-hidden w-76 transition-transform duration-300 hover:scale-105"
-        >
-            <div class="flex flex-col shadow-lg rounded-lg overflow-hidden w-76 transition-transform duration-300 hover:scale-105">
-              <div class="flex flex-col flex-1 p-4 justify-between">
-                <div class="gap-4">
-                  <a href={link}>
-                    <h3 class="md:text-xl text-lg  font-semibold text-black">
-                      {name}
-                    </h3>
-                  </a>
-                  <p class="text-md mt-2">{description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-     
-  
+<div class="flex flex-col gap4 space-y-10 py-4">
+  {projects.map(({ name, description, link }, index) => (
+    <div key={index} class="flex flex-col shadow-lg border border-black rounded-lg overflow-hidden w-76 transition-transform duration-300 hover:scale-105">
+      <div class="flex flex-col flex-1 p-4 justify-between">
+        <div class="gap-4">
+          <a href={link}>
+            <h3 class="md:text-xl text-lg font-semibold text-black">
+              {name}
+            </h3>
+          </a>
+          <p class="text-md mt-2">{description}</p>
+        </div>
+      </div>
+    </div>
+  ))}
 </div>
+
 
 
         </section>
@@ -115,32 +107,21 @@ This is my corner of the internet for talking about my technical and non-technic
 
 <h3> You can get in touch with me via: </h3>
 
-
-                <div class="flex flex-col  gap4 space-y-10 py-4">
-
-        {socials.map(({ name, icon, link }, index) => (
-          <div key={index}
-          
-             class=" flex flex-col   overflow-hidden w-76 "
-        >
-            <div class="flex flex-col  overflow-hidden w-76 ">
-              <div class="flex flex-col flex-1 ">
-                <div class="">
-                  <a href={link}>
-                    <h3 class="md:text-xl text-lg hover:underline  text-black">
-                      {name} 
-                    </h3>
-
-             
-                  </a>
-                  <icon/>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-     
-  
+<div class="flex flex-col gap4 space-y-10 py-4">
+  {socials.map(({ name, icon, link }, index) => (
+    <div key={index} class="flex flex-col overflow-hidden w-76">
+      <div class="flex flex-col flex-1">
+        <div class="">
+          <a href={link}>
+            <h3 class="md:text-xl text-lg hover:underline text-black">
+              {name}
+            </h3>
+          </a>
+          <icon />
+        </div>
+      </div>
+    </div>
+  ))}
 </div>
 
 </section>
