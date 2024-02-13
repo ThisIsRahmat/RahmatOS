@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import { SOCIALS } from "@config";
-import { Mail, Github } from 'lucide';
+
+
+import { Mail as mail, Github as github} from 'lucide-react';
 import { LOGO_IMAGE, SITE } from "@config";
-const posts = await getCollection("blog");
 
 const projects = [
   { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
@@ -13,8 +13,8 @@ const projects = [
 ]
 
 const socials = [
-  {name: "Github", link: "https://github.com/ThisIsRahmat", icon: Github },
-   {name: "Email", link: "mailto:thisisrahmat@gmail.com", icon: Mail }
+  {name: "Github", link: "https://github.com/ThisIsRahmat", icon: github },
+   {name: "Email", link: "mailto:thisisrahmat@gmail.com", icon: mail }
   
 ]
 
