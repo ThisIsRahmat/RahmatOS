@@ -9,7 +9,8 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-
+import { Mail, Github } from 'lucide-react';
+import { LOGO_IMAGE, SITE } from "@config";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
@@ -20,15 +21,32 @@ const projects = [
   { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" }
 ]
 
-
+const socials = [
+  {name: "Github", link: "https://github.com/ThisIsRahmat", icon: {Github} },
+   {name: "Email", link: "mailto:thisisrahmat@gmail.com", icon: {Mail} }
+  
+]
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
-  <Header />
+ <!-- <Header /> --!>
   <main id="main-content">
     <section id="hero">
-       <h1> Hi, I'm Rahmat! 👋🏾</h1>
+
+    <div class="flex flex-inline block w-full">
+       <h1> Hi, I'm Rahmat! 
+       
+    
+       </h1>
+         <img
+              src={`/assets/${LOGO_IMAGE.svg ? "profile.svg" : "profile.png"}`}
+              alt={SITE.title}
+              width={100}
+              height={80}
+                        
+            />
+       </div>
   
 
      <p>
@@ -55,8 +73,8 @@ This is my corner of the internet for talking about my technical and non-technic
     </section>
 
 
-    <Hr />
-             <section class="pb-6 pt-12">
+
+             <section class="pb-4 pt-4">
           <h2 class="text-2xl font-semibold tracking-wide">Projects</h2>
 
 
@@ -89,7 +107,44 @@ This is my corner of the internet for talking about my technical and non-technic
 
         </section>
 
-    <Hr />
+   <section class="pb-6 pt-2">
+          <h2 class="text-2xl font-semibold tracking-wide">Contact</h2>
+
+
+
+
+<h3> You can get in touch with me via: </h3>
+
+
+                <div class="flex flex-col  gap4 space-y-10 py-4">
+
+        {socials.map(({ name, icon, link }, index) => (
+          <div key={index}
+          
+             class=" flex flex-col   overflow-hidden w-76 "
+        >
+            <div class="flex flex-col  overflow-hidden w-76 ">
+              <div class="flex flex-col flex-1 ">
+                <div class="">
+                  <a href={link}>
+                    <h3 class="md:text-xl text-lg hover:underline  text-black">
+                      {name} 
+                    </h3>
+
+             
+                  </a>
+                  <icon/>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+     
+  
+</div>
+
+</section>
+
 
 <!---
     {
@@ -127,7 +182,7 @@ This is my corner of the internet for talking about my technical and non-technic
     ---!>
   </main>
 
-  <Footer />
+<!--  <Footer /> --!>
 </Layout>
 
 <style>

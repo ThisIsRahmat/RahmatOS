@@ -2,7 +2,7 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://thisisrahmat.com/", // replace this with your deployed domain
-  author: "Sat Naing",
+
   desc: "The personal site of Rahmat Junaid",
   title: "Rahmat",
   ogImage: "astropaper-og.jpg",
@@ -19,8 +19,7 @@ export const LOCALE = {
 export const LOGO_IMAGE = {
   enable: true,
   svg: false,
-  width: 216,
-  height: 46,
+
 };
 
 export const SOCIALS: SocialObjects = [
