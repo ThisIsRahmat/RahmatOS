@@ -2,7 +2,6 @@
 
 import Layout from "@layouts/Layout.astro";
 
-import {Github, Mail} from "lucide-react";
 
 import { LOGO_IMAGE, SITE } from "@config";
 
@@ -12,8 +11,8 @@ const projects = [
 ]
 
 const socials = [
-  {name: "Github", link: "https://github.com/ThisIsRahmat", icon: Github },
-   {name: "Email", link: "mailto:thisisrahmat@gmail.com", icon: Mail}
+  {name: "Github", link: "https://github.com/ThisIsRahmat" },
+   {name: "Email", link: "mailto:thisisrahmat@gmail.com"}
   
 ]
 
@@ -61,9 +60,12 @@ I plan to write more about my very first experience with entreprenuerhsip once I
 			I code primarily with <span class="underline decoration-indigo-500">Golang</span> and <span class="underline decoration-blue-500">Javascript/Typescript</span> and I am currently in love with the React framework Astro. 
 			</p>  --->
 
+<!--
 			<p>
 This is my corner of the internet for talking about my technical and non-technical interests, unbound to any algorithim.
 			</p>
+
+      --->
    
 
 			
@@ -116,7 +118,9 @@ This is my corner of the internet for talking about my technical and non-technic
              *  <span class="hover:underline hover:decoration-wavy hover:underline-offset-2"> {social.name} </span>
             </p>
           </a>
-              <Fragment {social.icon}/> 
+
+          <!-- To-do: Figure out how to import icons from lucide to site !-->
+            <!--  <Fragment {social.icon}/>  --!>
     
         </div>
       </div>
