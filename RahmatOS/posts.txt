@@ -1,0 +1,12 @@
+
+
+Blog posts 
+
+--> Why I am building my first project in Astro
+--> My new favourite framework
+--> My 2024 technichal goals:
+    -> Build and ship minimum 2x Saas products
+    -> Get 200 combined paying customers on both of the Saas projects
+    -> Complete the entire https://www.executeprogram.com/ course
+    -> Ship a sideproject using Golang + sqlite 
+    
