@@ -6,10 +6,21 @@
   
 
   body {
-    @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base 
+    @apply text-[#0d4e96] flex min-h-[100svh] flex-col bg-skin-fill  
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
-    background-color: #F7F4EE;
+    background-color: #fefcf9; 
 
+  }
+
+  h1,
+   h2,
+    h3
+   {
+@apply font-instrumentserif 
+  }
+
+  p {
+    @apply font-instrumentsans
   }
   section,
   footer {

@@ -55,6 +55,9 @@ module.exports = {
       },
       fontFamily: {
         mono: ["IBM Plex Mono", "monospace"],
+        spacegrotesk: ["Space Grotesk", "sans-serif"],
+        instrumentserif: ["Instrument Serif", "serif"],
+        instrumentsans: ["Instrument Sans", "sans-serif"],
         
       },
 
