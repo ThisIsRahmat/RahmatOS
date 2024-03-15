@@ -1,0 +1,208 @@
+---
+
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+
+import { LOGO_IMAGE, SITE } from "@config";
+
+const projects = [
+  { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
+  { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" }
+]
+
+const socials = [
+  {name: "Github", link: "https://github.com/ThisIsRahmat" },
+   {name: "Email", link: "mailto:thisisrahmat@gmail.com"}
+  
+]
+
+---
+
+<Layout>
+
+  <main id="main-content">
+    <section id="hero">
+
+    <div class="flex flex-inline block w-full ">
+       <h1 class="sm:text-5xl text-3xl"> Hi, I'm Rahmat! 
+       
+    
+       </h1>
+         <img
+              src={`/assets/${LOGO_IMAGE.svg ? "profile.svg" : "profile.png"}`}
+              alt={SITE.title}
+              width={100}
+              height={80}
+                        
+            />
+       </div>
+  
+  <div class="space-y-4 flex flex-col">
+
+     <p>
+				  I am an engineer and occassional technical instructor based in  England🇬🇧
+			</p>
+				<p>
+				  I enjoy building software and I am currently building my first Saas business, a one-way video interviewing platform to screen candidates.
+          
+          
+				  			</p>
+
+                <p>
+I am learning <span class="italic"> a lot </span> in the process about things like using the Mediastream API, authenthication and the prisma ORM. 
+</p>
+<p>
+I plan to write more about my very first experience with entreprenuerhsip once I have shipped the completed project *and* gotten my first <span class="font-semibold"> 100 customers </span>. 
+                </p>
+							<!--
+				  <span> You can read more about this in my <Link> Goals for 2024 </Link> </span> --->
+          	<!--	<p class="">
+			I code primarily with <span class="underline decoration-indigo-500">Golang</span> and <span class="underline decoration-blue-500">Javascript/Typescript</span> and I am currently in love with the React framework Astro. 
+			</p>  --->
+
+<!--
+			<p>
+This is my corner of the internet for talking about my technical and non-technical interests, unbound to any algorithim.
+			</p>
+
+      --->
+   
+
+			
+</div>
+		
+
+    </section>
+
+
+
+             <section class="pb-4 pt-4">
+          <h2 class="text-2xl font-semibold tracking-wide">Projects</h2>
+
+
+<div class="flex flex-col space-y-4 py-4">
+  {projects.map((project) => (
+     <div  class="flex flex-col shadow-lg border border-black rounded-lg overflow-hidden w-76 transition-transform duration-300 hover:scale-105">
+          <div class="flex flex-col flex-1 p-4 justify-between">
+        <div class="gap-4">
+          <a href={project.link}>
+            <h3 class="md:text-xl text-lg font-semibold font-instrumentsans ">
+              {project.name}
+            </h3>
+          </a>
+          <p class="text-md mt-2">{project.description}</p>
+        </div>
+      </div>
+      </div>
+     ))}
+</div>
+
+
+
+        </section>
+
+   <section class="pb-6 pt-2">
+          <h2 class="text-2xl font-semibold tracking-wide">Contact</h2>
+
+
+
+
+<h4> You can get in touch with me via: </h4>
+
+<div class="flex flex-col gap4 space-y-2 py-4">
+  {socials.map((social) => (
+         <div class="flex flex-col flex-1">
+        <div class="">
+          <a href={social.link}>
+            <p class="md:text-xl text-lg ">
+             *  <span class="hover:underline hover:decoration-wavy hover:underline-offset-2"> {social.name} </span>
+            </p>
+          </a>
+
+          <!-- To-do: Figure out how to import icons from lucide to site !-->
+            <!--  <Fragment {social.icon}/>  --!>
+    
+        </div>
+      </div>
+      ))}
+</div>
+
+</section>
+
+
+<!---
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts">
+          <h2>Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              ({ data, slug }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/posts/${slug}/`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts/">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
+
+
+    ---!>
+  </main>
+
+<!--  <Footer /> --!>
+</Layout>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>
