@@ -1,0 +1,14 @@
+/* Register your custom font family and tell the browser where to find it. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'NeueBit';
+    src: url('/fonts/PPNeueBit-Bold') format('opentype');
+  
+  }
+
+
