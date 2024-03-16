@@ -1,7 +1,0 @@
-[
-    { "name": "StudyWiz", "description": "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", "link": "https://www.studywiz.co/" },
-
-
-    { "name": "OpenSaasFinder", "description": "A directory for discovering popular alternatives to paid Saas products.", "link": "https://www.opensaasfinder.com/" }
-  ]
-

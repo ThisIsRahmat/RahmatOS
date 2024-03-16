@@ -6,15 +6,14 @@ import SectionContainer from "../components/SectionContainer.astro";
 const projects = [
   { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
   { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" },
-  { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
-  { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" }
 
 
 ]
 
 const socials = [
   {name: "Github", link: "https://github.com/ThisIsRahmat" },
-   {name: "Email", link: "mailto:thisisrahmat@gmail.com"}
+   {name: "Email", link: "mailto:thisisrahmat@gmail.com"},
+      {name: "Linkedin", link: "https://www.linkedin.com/in/rahmat-junaid/"}
   
 ]
 
@@ -38,13 +37,21 @@ const socials = [
                 height={160}
                 aspectRatio={1 / 1}
                 format={"webp"}
-                class="rounded-full h-20 w-20 bg-neutral-100 object-cover p-4"
+                class="rounded-full h-24 w-24  p-4"
             />
 
+
+
+          <!--- class="text-2xl lg:text-3xl font-medium leading-8 lg:leading-10 tracking-tight lg:tracking-tighter mb-0" -->
+                    
+                
 <div class="flex items-center justify-center">
    <h1
-                        class="text-2xl lg:text-3xl font-medium leading-8 lg:leading-10 tracking-tight lg:tracking-tighter mb-0"
+                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
+                    
                     >
+
+
                         Hi I&apos;m Rahmat
                     </h1>
 			</div>
@@ -56,10 +63,25 @@ const socials = [
                  
                 </div>
                 <div
-                    class="content space-y-2 text-xl md:text-3xl font-medium leading-8 lg:leading-10  text-neutral-500"
+                    class="content space-y-2 text-xl md:text-2xl font-medium leading-8 lg:leading-10  text-neutral-500"
                 >
-                  	<p>  I am an engineer and occassional technical instructor based in  the UK 🇬🇧 </p>
-                    <p>   I enjoy building software and I am currently building my first Saas business, <a href="https://usescreenly.com/"> <span> Screenly </span> </a>,  a one-way video interviewing platform to screen candidates.</p>
+                  	<p>  I am a product focused engineer based in  the UK 🇬🇧 </p>
+
+
+
+ <!--
+                    <p>
+                     I enjoy working on between backend and infrastructure engineering.
+                    </p>
+
+                    ---!>
+                    <p>   I am currently building my first saas, <a href="https://usescreenly.com/"> <span class="text-blue-600 hover:uppercase hover:bg-blue-600 hover:text-white"> Screenly, </span> </a>   a one-way video interviewing platform to simplify candidate screening.</p>
+
+
+  <p>
+                    Outside of technichal work I enjoy <a href="/books"> <span class=" hover:bg-indigo-500 hover:text-white underline underline-offset-4  decoration-2 decoration-indigo-500">reading</span>, <a> traveling and amateur film photography.
+                    </p>
+
 
 </div>
 
@@ -70,7 +92,7 @@ const socials = [
   <div
                     class="content pt-8 space-y-2 text-md md:text-xl font-medium leading-8 lg:leading-10  text-neutral-500"
                 >
-                  	<p>  You can get in touch with me on: </p>
+                  	<p>  If you want to chat you can get in touch with me on: </p>
                    
 
 	<div class="inline-flex space-x-4 ">
@@ -95,29 +117,42 @@ const socials = [
 
 		    </SectionContainer>
 
+            <!-- Books -->
+    <SectionContainer>
+
+
+   
+    </SectionContainer>
+
 
       <!-- Projects -->
     <SectionContainer>
 
-    <h2 class="font-medium text-2xl lg:text-3xl text-h4 text-neutral-500 my-4 ">
-                Projects
+    <h2 class="font-medium text-2xl lg:text-3xl text-h4 font-bold  text-neutral-500 my-4 ">
+                Previous Projects
             </h2>
+            
 <div  class="grid scroll-m-24 gap-5 grid-cols-1 md:grid-cols-2 w-full">
   {projects.map((project) => (
-      <div class="hover:scale-105 hover:rotate-2 flex border-2 flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl  p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
-         <div class="px-4 py-5 sm:p-6 space-4">
+      <div class="hover:scale-105 shadow hover:rotate-2 flex border-2 flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl p-8 md:px-8 md:py-16 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
+       
        
           <a href={project.link}>
             <p class=" text-xl md:text-3xl text-neutral-500 content pb-2 ">
+
+            
             {project.name} 
 			  
             </p>
-			 <div class="content break-words  text-2xl font-medium leading-10 tracking-tight lg:tracking-tighter text-neutral-500 ">
-                                        <p>{project.description}</p>
+			<!-- <div class="content break-words  text-2xl font-medium leading-10 tracking-tight lg:tracking-tighter text-neutral-500 ">
+--->
+
+<div>
+                                        <p class="text-base text-blue-500 xl:text-2xl mt-4">{project.description}</p>
                                     </div>
           </a>
 
- </div>
+
       </div>
       ))}
 </div>
