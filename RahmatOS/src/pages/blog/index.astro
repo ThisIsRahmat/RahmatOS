@@ -1,0 +1,39 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+---
+
+
+<Layout title="Books">
+
+   <h1
+                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
+                    
+                    >
+
+
+                       Books
+                    </h1>
+
+
+<!-- Work on fetching books from literal
+const response = await fetch("https://literal.club/graphql/",
+  {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      query: `
+        query getFilm ($id:ID!) {
+          film(id: $id) {
+            title
+            releaseDate
+          }
+        }
+      `,
+      variables: {
+        id: "ZmlsbXM6MQ==",
+      },
+    }),
+  }); --!>
+
+</Layout>
