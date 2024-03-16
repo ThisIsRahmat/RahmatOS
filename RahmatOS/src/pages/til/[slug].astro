@@ -1,0 +1,19 @@
+---
+
+export function getStaticPaths () {
+ return [
+    {params: {slug: 'en''}},
+    {params: {slug: 'fr'}},
+  ];
+}
+
+const { slug } = Astro.params;
+
+import Layout from '../../layouts/Layout.astro';
+---
+
+
+<Layout title="Books">
+
+
+</Layout>
