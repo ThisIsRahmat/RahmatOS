@@ -1,13 +1,14 @@
 ---
 
-export function getStaticPaths () {
- return [
-    {params: {slug: 'en'}},
-    {params: {slug: 'fr'}}
-  ];
-}
+const { slug } = Astro.params
 
-const { slug } = Astro.params;
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'test' } },
+    { params: { slug: 'test2' } },
+    { params: { slug: 'test3' } },
+  ]
+}
 
 import Layout from '../../layouts/Layout.astro';
 ---

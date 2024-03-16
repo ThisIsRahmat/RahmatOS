@@ -1,13 +1,14 @@
 ---
 
-export function getStaticPaths () {
- return [
-    {params: {title: 'en''}},
-    {params: {title: 'fr'}},
-  ];
-}
+const { title } = Astro.params
 
-const { title } = Astro.params;
+export async function getStaticPaths() {
+  return [
+    { params: { title: 'test' } },
+    { params: { title: 'test2' } },
+    { params: { title: 'test3' } },
+  ]
+}
 
 import Layout from '../../layouts/Layout.astro';
 ---
