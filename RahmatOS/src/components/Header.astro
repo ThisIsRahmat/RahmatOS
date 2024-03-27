@@ -1,33 +1,39 @@
 
 ---
 
+const navigations = [
+  {name: "Books", href: "/books"},
+  {name: "Blog", href: "/blog"},
+  {name: "Daily Deepwork", href: "/deepwork"},
+
+]
 
 ---
 
 <header class="">
 
-  <nav class="flex items-center justify-between py-6" aria-label="Global">
+  <nav class="flex items-center justify-between py-12" aria-label="Global">
     <div class="flex lg:flex-1 text-xl">
-      <a href="/" class="-m-1.5 p-1.5 hover:underline hover:text-[#1c63f1] text-neutral-500 hover:underline-offset-2">
+      <a href="/" class="-m-1.5 p-1.5 tracking-tighter  font-display hover:underline hover:text-[#1c63f1]  hover:underline-offset-2">
       Rahmat Junaid
            </a>
     </div>
  
 
     <div class=" flex flex-1 justify-end gap-x-4">
-<!---
+
 
   {navigations.map((nav) => (
        
        
-          <a href={nav.href} class="text-sm hover:underline leading-6 >
+          <a href={nav.href} class="text-sm leading-6 >
             <p class="md:text-xl text-lg ">
-              <span class="hover:underline hover:text-[#1c63f1] text-neutral-500 hover:underline-offset-2"> {nav.name} </span>
+              <span class="hover:underline hover:text-[#1c63f1] text-neutral-500 hover:underline-offset-4"> {nav.name} </span>
             </p>
           </a>
 
 
-      ))} --!>
+      ))} 
     
 
     </div>
