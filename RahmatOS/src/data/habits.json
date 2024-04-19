@@ -1,0 +1,28 @@
+[
+    {
+        "date": "2012-01-01", 
+        "time": "120",
+        "description": "Worked on the creation of deepwork"
+    },
+
+    {
+        "date": "2012-01-02", 
+        "time": "120",
+        "description": "Worked on the creation of deepwork"
+    },
+    {
+        "date": "2012-01-03", 
+        "time": "120",
+        "description": "Worked on the creation of deepwork"
+    },
+    {
+        "date": "2012-01-04", 
+        "time": "120",
+        "description": "Worked on the creation of deepwork"
+    },
+    {
+        "date": "2012-01-05", 
+        "time": "120",
+        "description": "Worked on the creation of deepwork"
+    }
+]
