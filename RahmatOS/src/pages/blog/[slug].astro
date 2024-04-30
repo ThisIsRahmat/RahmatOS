@@ -1,20 +1,41 @@
 ---
-
-const { slug } = Astro.params
+import Main from "../../layouts/Main.astro";
+import Post from "../../components/Post.astro";
+import { postFragment } from "../../../fragments/posts";
 
 export async function getStaticPaths() {
-  return [
-    { params: { slug: 'test' } },
-    { params: { slug: 'test2' } },
-    { params: { slug: 'test3' } },
-  ]
+  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `query MyQuery {
+                posts {
+                  ${postFragment}
+                }
+              }
+
+        `,
+    }),
+  });
+
+  const json = await response.json();
+  const paths = json.data.posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+
+  return paths;
 }
 
+const { post } = Astro.props;
 import Layout from '../../layouts/Layout.astro';
 ---
 
 
 <Layout title="Blog">
 
-
+{post}
 </Layout>
