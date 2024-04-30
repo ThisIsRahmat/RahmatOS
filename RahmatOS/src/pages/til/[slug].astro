@@ -1,14 +1,6 @@
 ---
 
-const { slug } = Astro.params
 
-export async function getStaticPaths() {
-  return [
-    { params: { slug: 'test' } },
-    { params: { slug: 'test2' } },
-    { params: { slug: 'test3' } },
-  ]
-}
 
 import Layout from '../../layouts/Layout.astro';
 ---

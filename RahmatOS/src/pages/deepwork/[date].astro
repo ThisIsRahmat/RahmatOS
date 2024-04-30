@@ -1,15 +1,5 @@
 ---
 
-const { title } = Astro.params
-
-export async function getStaticPaths() {
-  return [
-    { params: { date: 'test' } },
-    { params: { date: 'test2' } },
-    { params: { date: 'test3' } },
-  ]
-}
-
 import Layout from '../../layouts/Layout.astro';
 ---
 
