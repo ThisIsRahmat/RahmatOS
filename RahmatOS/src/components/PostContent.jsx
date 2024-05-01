@@ -2,7 +2,7 @@
 import ReactMarkdown from 'react-markdown';
 
 const PostContent = ({ post }) => {
-  const { content, slug, publishedAt } = post;
+  const { content, publishedAt } = post;
 
   const dateString = new Date(publishedAt).toLocaleDateString("en-GB", {
     dateStyle: "full",

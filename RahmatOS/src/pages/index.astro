@@ -3,12 +3,6 @@ import Layout from '../layouts/Layout.astro';
 
 import SectionContainer from "../components/SectionContainer.astro";
 
-const projects = [
-  { name: "StudyWiz", description: "AI generated flashcards built with openAI’s GPT and Nextjs(Javascript)", link: "https://www.studywiz.co/" },
-  { name: "OpenSaasFinder", description: "A directory for discovering popular alternatives to paid Saas products.", link: "https://www.opensaasfinder.com/" },
-
-
-]
 
 interface Post {
   title: string;
@@ -166,7 +160,7 @@ console.log(posts)
 <h1 class="text-2xl font-semibold"> Latest post</h1>
 <div class="pt-4">
     {
-      json.data.posts.map((post) => (
+      json.data.posts.map((post: string) => (
         <div class="gap-x-8 ">
         <a href=`/blog/${post.slug}`>
           <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
