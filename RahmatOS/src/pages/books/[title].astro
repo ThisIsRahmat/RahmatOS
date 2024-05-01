@@ -5,15 +5,15 @@ import Layout from '../../layouts/Layout.astro';
 
 
 export async function getStaticPaths() {
-
-
-const title = [
+  const titles = [
     "book-title",
-     second-book-title",
-      "third-book-title",
+    "second-book-title", // Corrected typo and lowercase
+    "third-book-title",
+  ]; // Added comma at the end
 
-]
-    return title;
+  return titles.map((title) => ({
+    params: { title },
+  }));
 }
 ---
 
