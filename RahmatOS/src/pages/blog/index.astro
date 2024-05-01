@@ -13,11 +13,14 @@ const query = {
   body: JSON.stringify({
    query: `
       {
-        posts {
+           posts(orderBy: publishedAt_ASC) {
           title
           overview
           publishedAt
-          content
+          category
+        slug
+        
+         
         
         }
       }`,
@@ -28,7 +31,7 @@ const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
 const json = await response.json()
 console.log("This is json")
 
-console.log(json.data)
+console.log(json)
 const posts: Post[] = json.data;
 console.log("This is posts")
 
@@ -50,14 +53,13 @@ console.log(posts)
                     </h1>
 
 
-                        <ul class="py-4">
-      <li><a class="hover:text-blue" href="/blog/content/building-screenly-part-1/">Building authenthication in Remix, Prisma, Supabase (part 1)</a></li>
-    </ul>
-
     {
-      posts.map((post) => (
+      json.data.posts.map((post) => (
         <div>
+        <a href=`/blog/${post.slug}`>
           <h2>{post.title}</h2>
+<p></p>
+          </a>
         </div>
       ))
     }

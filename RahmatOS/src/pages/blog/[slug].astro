@@ -1,5 +1,5 @@
 ---
-
+import Layout from '../../layouts/Layout.astro';
 import { postFragment } from "../../../fragments/posts";
 
 export async function getStaticPaths() {
@@ -12,31 +12,50 @@ export async function getStaticPaths() {
     body: JSON.stringify({
       query: `
       {
-        posts {
-          title
-          overview
-          slug
-        }
+        posts(orderBy: publishedAt_ASC) {
+ 
+
+    overview
+    publishedAt
+    slug
+    title
+
+    content {
+      markdown
+    }
+  }
       }`,
-        `,
+        
     }),
   });
 
   const json = await response.json();
+
   const paths = json.data.posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
 
+  console.log(paths)
+
   return paths;
 }
 
 const { post } = Astro.props;
-import Layout from '../../layouts/Layout.astro';
+  console.log(post.content.markdown)
+
 ---
 
 
 <Layout title="Blog">
 
-{post}
+<h3>
+{post.title}
+</h3>
+<p>
+{post.category}
+</p>
+<p>
+{post.content.markdown}
+</p>
 </Layout>
