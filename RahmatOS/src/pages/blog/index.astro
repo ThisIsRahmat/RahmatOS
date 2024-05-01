@@ -37,7 +37,9 @@ const json = await response.json()
 
 const posts: Post[] = json.data;
 
-
+  const dateString = new Date(posts.publishedAt).toLocaleDateString("en-GB", {
+    dateStyle: "full",
+  });
 
 ---
 
@@ -54,13 +56,16 @@ const posts: Post[] = json.data;
                     </h1>
 
 
-<div class="pt-8">
+<div class="pt-8 space-y-2">
     {
       json.data.posts.map((post: Post) => (
         <div class="gap-x-8 ">
         <a href=`/blog/${post.slug}`>
           <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
- <h2>{post.category}</h2>
+          <p>{post.publishedAt}</p>
+ <time dateTime={post.publishedAt}>
+     {post.publishedAt}
+      </time>
           </a>
         </div>
       ))

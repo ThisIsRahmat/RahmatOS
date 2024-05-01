@@ -14,9 +14,11 @@ const PostContent = ({ post }) => {
   return (
     <div >
         <div className="pb-8">
+            <p>
       <time dateTime={publishedAt}>
-        {dateString} {timeString}
+        {dateString} 
       </time>
+      </p>
       </div>
       {/* <ReactMarkdown>{content.markdown}</ReactMarkdown> */}
       <ReactMarkdown className="gap-x-2" children={content.markdown} />
