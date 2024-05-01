@@ -154,3 +154,7 @@ create trigger on_auth_user_created
 
 ```
 
+
+**Next steps** 
+
+To expand on this work you can create a /onboarding page 

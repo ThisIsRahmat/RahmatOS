@@ -142,13 +142,6 @@ export const action = async ({ request, context }: ActionFunctionArgs<GetLoadCon
  
   const formData = await request.formData();
 
-  // validate form input
-  const result = await validator.validate(formData);
-  if (result.error) {
-    return validationError(result.error);
-
-  }
-
   const first_name = formData.get("first_name") as string;
   const last_name = formData.get("last_name") as string;
   const email = formData.get("email") as string;
@@ -176,8 +169,8 @@ export const action = async ({ request, context }: ActionFunctionArgs<GetLoadCon
 
   }
 
-  //you can return a specific authnethicated page like /on-boarding or /dashboard instead
-  return redirect("/onboarding");
+  // if you want to expand this tutorial you can return a specific authnethicated page like /on-boarding or /dashboard instead
+  return redirect("/");
 }
 
 
