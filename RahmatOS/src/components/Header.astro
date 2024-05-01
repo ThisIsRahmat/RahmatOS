@@ -1,45 +1,36 @@
-
+---
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { SITE } from "@consts";
 ---
 
-const navigations = [
-
-
-  {name: "Blog", href: "/blog"},
-
-    {name: "Bookmarks", href: "/bookmarks"},
-
-
-]
-
----
-
-<header class="">
-
-  <nav class="flex items-center justify-between py-12" aria-label="Global">
-    <div class="flex lg:flex-1 text-lg">
-      <a href="/" class="-m-1.5 p-1.5 tracking-tighter md:text-xl text-lg  font-display hover:underline hover:text-[#1c63f1]  hover:underline-offset-2">
-      Rahmat Junaid
-           </a>
-    </div>
- 
-
-    <div class=" flex flex-1 justify-end gap-x-2">
-
-
-  {navigations.map((nav) => (
-       
-       
-          <a href={nav.href} class="text-lg leading-6">
-            <p class="md:text-xl text-lg">
-              <span class="hover:underline hover:text-[#1c63f1] text-neutral-500 hover:underline-offset-4"> {nav.name} </span>
-            </p>
-          </a>
-
-
-      ))} 
+<header>
+  <Container>
+    <div class="flex flex-wrap gap-y-2 justify-between">
+      <Link href="/" underline={false}>
+        <div class="font-semibold">
+          {SITE.NAME}
+        </div>
+      </Link>
+      <nav class="flex gap-1">
+	        <Link href="/books">
+          books
+        </Link>
+        <span>
+          {`/`}
+        </span>
+        <Link href="/blog">
+          blog
+        </Link>
+        <span>
+          {`/`}
+        </span>
+		
+        <Link href="/bookmarks">
+          bookmarks
+        </Link>
     
-
+      </nav>
     </div>
-  </nav>
-
+  </Container>
 </header>

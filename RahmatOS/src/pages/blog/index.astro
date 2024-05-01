@@ -1,80 +1,56 @@
 ---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { BLOG } from "@consts";
 
-import Layout from '../../layouts/Layout.astro';
-
-
-interface Post {
-  title: string,
-            overview: string,
-          publishedAt: string,
-          category: string[],
-        slug: string,
-
+const data = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  
+type Acc = {
+  [year: string]: CollectionEntry<"blog">[];
 }
 
-const query = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-   query: `
-      {
-           posts(orderBy: publishedAt_ASC) {
-          title
-          overview
-          publishedAt
-          category
-        slug
-        
-         
-        
-        }
-      }`,
-  }),
-};
+const posts = data.reduce((acc: Acc, post) => {
+    const year = post.data.date.getFullYear().toString();
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(post);
+    return acc;
+  }, {});
 
-const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
-const json = await response.json()
-
-const posts: Post[] = json.data;
-
-  const dateString = new Date(posts.publishedAt).toLocaleDateString("en-GB", {
-    dateStyle: "full",
-  });
-
+const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a)); 
 ---
 
-
-<Layout title="Books">
-
-   <h1
-                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
-                    
-                    >
-
-
-                   Blogs
-                    </h1>
-
-
-<div class="pt-8 space-y-2">
-    {
-      json.data.posts.map((post: Post) => (
-        <div class="gap-x-8 ">
-        <a href=`/blog/${post.slug}`>
-          <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
-          <p>{post.publishedAt}</p>
- <time dateTime={post.publishedAt}>
-     {post.publishedAt}
-      </time>
-          </a>
-        </div>
-      ))
-    }
-
-</div>
-<!-- Work on fetching books from literal
---!>
-
-</Layout>
-
-
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        Blog
+      </div>
+      <div class="space-y-4">
+        {years.map(year => (
+          <section class="animate space-y-4">
+            <div class="font-semibold text-black dark:text-white">
+              {year}
+            </div>
+            <div>
+              <ul class="flex flex-col gap-4">
+                {
+                  posts[year].map((post) => (
+                    <li>
+                      <ArrowCard entry={post}/>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </Container>
+</PageLayout>

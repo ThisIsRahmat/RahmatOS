@@ -1,207 +1,136 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { dateRange } from "@lib/utils";
+import { SITE, HOME, SOCIALS } from "@consts";
 
-import SectionContainer from "../components/SectionContainer.astro";
+const blog = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
 
+const projects = (await getCollection("projects"))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
-interface Post {
-  title: string,
-            overview: string,
-          publishedAt: string,
-          category: string[],
-        slug: string,
-        content: string,
-}
+const allwork = (await getCollection("work"))
+  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
+  .slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
 
-
-const socials = [
-  {name: "Github", link: "https://github.com/ThisIsRahmat" },
-   {name: "Email", link: "mailto:thisisrahmat@gmail.com"},
-      {name: "Linkedin", link: "https://www.linkedin.com/in/rahmat-junaid/"}
-  
-]
-
-
-
-const query = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-   query: `
-      {
-           posts(orderBy: publishedAt_ASC) {
-          title
-          overview
-          publishedAt
-          category
-        slug
-        
-         
-        
-        }
-      }`,
-  }),
-};
-
-const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
-const json = await response.json()
-console.log("This is json")
-
-console.log(json)
-const posts: Post[] = json.data;
-console.log("This is posts")
-
-console.log(posts)
-
-
+const work = await Promise.all(
+  allwork.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
 
 ---
 
-<Layout title="Rahmat">
-	<main>
-
-
-        <!-- Header/Hero Section -->
-    <SectionContainer>
-
-	 <div class="content-container">
-
-<div class="inline-flex space-x-4">
-
-	   <img
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+  <div class="inline-flex space-x-4">
+  
+		   <img
                 src="/assets/profile.png"
                 alt={" Illustration of Rahmat"}
                 width={160}
                 height={160}
                           class="rounded-full h-24 w-24  p-4"
             />
-
-
-
-          <!--- class="text-2xl lg:text-3xl font-medium leading-8 lg:leading-10 tracking-tight lg:tracking-tighter mb-0" -->
-                    
-                
-<div class="flex items-center justify-center">
-   <h1
-                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
-                    
-                    >
-
-
-                        Hi I&apos;m Rahmat
-                    </h1>
+		
+			  <h4 class=" pb-8 mt-auto text-2xl  animate font-semibold text-black dark:text-white">
+      Hi, I'm Rahmat
+    </h4>
+			
 			</div>
-				</div>
-				</div>
 
-    <div class="content-container">
-                <div class="page-title--content max-w-[54rem] mb-8 lg:mb-4">
-                 
-                </div>
-                <div
-                    class="content space-y-2 text-md md:text-2xl lg:leading-10  "
-                >
-                  	<p>  I am a product engineer based in the UK 🇬🇧 </p>
-
-                    <p>
-                     I enjoy working  between backend and infrastructure engineering.
-                    </p>
-
-                
-                    <p>   I am currently building my first saas, <a href="https://usescreenly.com/"> <span class="text-blue-600 hover:uppercase hover:bg-blue-600 hover:text-white"> Screenly, </span> </a>   a one-way video interviewing platform to simplify candidate screening.</p>
-
-
-  <p>
-                    Outside of technichal work I enjoy <a href="/books"> <span class=" hover:bg-indigo-500 hover:text-white underline underline-offset-4  decoration-2 decoration-indigo-500">reading</span>, <a> traveling and amateur film photography.
-                    </p>
-
-
-</div>
-
-
-   <!-- Contact Section -->
-
-   
-  <div
-                    class="content pt-8 space-y-2 text-md md:text-xl font-medium  lg:leading-10  "
-                >
-                  	<p>  If you want to chat you can get in touch with me on: </p>
-                   
-
-	<div class="inline-flex space-x-4 ">
-  {socials.map((social) => (
-         <div class="flex flex-col flex-1">
-       
-          <a href={social.link}>
-            <p class="md:text-xl text-lg ">
-              <span class="hover:underline hover:text-[#1c63f1] hover:underline-offset-2"> {social.name} </span>
-            </p>
-          </a>
-
-          <!-- To-do: Figure out how to import icons from lucide to site !-->
-            <!--  <Fragment {social.icon}/>  --!>
+    <div class="space-y-16">
+      <section>
+        <article class="space-y-4">
+          <p class="animate">
+ I am a product engineer based in the UK <span class="text-xl"> 🇬🇧 </span> 
     
- 
-      </div>
-      ))}
-</div>
-</div>
+          </p>
+          <p class="animate">
+           I am currently building my first saas, <a href="https://usescreenly.com/"> <span class="text-blue-600 hover:uppercase hover:bg-blue-600 hover:text-white"> Screenly, </span> </a>   a one-way video interviewing platform to simplify candidate screening.</p>
 
+          </p>
+          <p class="animate">
+             Outside of technichal work I enjoy <a href="/books"> <span class=" hover:bg-indigo-500 hover:text-white underline underline-offset-4  decoration-2 decoration-indigo-500">reading</span>, <a> traveling and amateur film photography.
+                    </p>
+        </article>
+      </section>
 
-		    </SectionContainer>
-
-            <!-- Books -->
-    <SectionContainer>
-
-
-   
-    </SectionContainer>
-
-
-
-
-      <!-- Blog -->
-    <SectionContainer>
-<h1 class="text-2xl font-semibold"> Latest post</h1>
-<div class="pt-4">
-    {
-      json.data.posts.map((post: Post) => (
-        <div class="gap-x-8 ">
-        <a href=`/blog/${post.slug}`>
-          <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
- <h2>{post.category}</h2>
-          </a>
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+            Latest posts
+          </h5>
+          <Link href="/blog">
+            See all posts
+          </Link>
         </div>
-      ))
-    }
+        <ul class="flex flex-col gap-4">
+          {blog.map(post => (
+            <li>
+              <ArrowCard entry={post} />
+            </li>
+          ))}
+        </ul>
+      </section>
 
-</div>
+<!--
 
-	</SectionContainer>
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+            Recent projects
+          </h5>
+          <Link href="/projects">
+            See all projects
+          </Link>
+        </div>
+        <ul class="flex flex-col gap-4">
+          {projects.map(project => (
+            <li>
+              <ArrowCard entry={project} />
+            </li>
+          ))}
+        </ul>
+      </section>
 
-<!---
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul> -->
-	</main>
-</Layout>
+	  -->
 
+      <section class="animate space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">
+          Let's Connect
+        </h5>
+        <article>
+          <p>
+            If you want to get in touch with me about something or just to say hi,
+            reach out on social media or send me an email.
+          </p>
+        </article>
+        <ul class="flex flex-wrap gap-2">
+          {SOCIALS.map(SOCIAL => (
+            <li class="flex gap-x-2 text-nowrap">
+              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
+                {SOCIAL.NAME}
+              </Link>
+              {"/"}
+            </li>
+          ))}
+          <li class="line-clamp-1">
+            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
+              {SITE.EMAIL}
+            </Link>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

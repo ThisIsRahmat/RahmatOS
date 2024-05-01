@@ -1,12 +1,28 @@
-<!-- <footer class="my-12 pb-4 text-neutral-500 border-t"> --!>
+---
+import Container from "@components/Container.astro";
+import { SITE } from "@consts";
+import BackToTop from "@components/BackToTop.astro";
+---
 
-<footer class="mt-8 border-t border-gray-900/10 text-neutral-700 text-xs pt-2">
-  <p class="text-center text-sm ">
-   This website is a constant work in progress and was last updated <span class="hover:underline "> 16th of March </span>
-  </p>
-
-  <p class="text-center text-xs  mt-1">
-  Copyright © {new Date().getFullYear()}. All rights reserved.
-    </a>
-  </p>
+<footer class="animate">
+  <Container>
+    <div class="relative">
+      <div class="absolute right-0 -top-20">
+        <BackToTop />
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>
+        &copy; 2024 {`|`} {SITE.NAME}
+      </div>
+      <div class="flex flex-wrap gap-1 items-center">
+   
+   <p>
+All wrongs reserved
+   </p>
+       
+     
+      </div>
+    </div>
+  </Container>
 </footer>

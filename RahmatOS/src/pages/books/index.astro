@@ -1,24 +1,32 @@
 ---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { dateRange } from "@lib/utils";
+import { BOOK } from "@consts";
 
-import Layout from '../../layouts/Layout.astro';
+const collection = (await getCollection("work"))
+  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
 
+const work = await Promise.all(
+  collection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
 ---
 
+<PageLayout title={BOOK.TITLE} description={BOOK.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        {BOOK.TITLE}
+      </div>
+   
+<!-- 
+      <ul class="animate flex flex-col gap-4">
 
-<Layout title="Books">
-
-   <h1
-                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
-                    
-                    >
-
-
-                   Books
-                    </h1>
-
-
-<p>
-This side of my site is still a work in progress 
-</p>
-
-</Layout>
+      </ul> -->
+    </div>
+  </Container>
+</PageLayout>
