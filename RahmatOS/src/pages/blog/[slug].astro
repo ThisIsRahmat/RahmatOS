@@ -2,12 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 
 interface Post {
-  title: string,
-            overview: string,
-          publishedAt: string,
-          category: string[],
-        slug: string,
-        content: string[],
+  title: string;
+  overview: string;
+  publishedAt: string;
+  category: string[];
+  slug: string;
+  content: { markdown: string }[];
 }
 
 
