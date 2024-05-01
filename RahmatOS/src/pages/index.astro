@@ -5,7 +5,12 @@ import SectionContainer from "../components/SectionContainer.astro";
 
 
 interface Post {
-  title: string;
+  title: string,
+            overview: string,
+          publishedAt: string,
+          category: string[],
+        slug: string,
+        content: string,
 }
 
 
@@ -160,7 +165,7 @@ console.log(posts)
 <h1 class="text-2xl font-semibold"> Latest post</h1>
 <div class="pt-4">
     {
-      json.data.posts.map((post: string) => (
+      json.data.posts.map((post: Post) => (
         <div class="gap-x-8 ">
         <a href=`/blog/${post.slug}`>
           <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>

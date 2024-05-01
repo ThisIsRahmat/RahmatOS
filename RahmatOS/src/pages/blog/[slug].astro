@@ -1,6 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+interface Post {
+  title: string,
+            overview: string,
+          publishedAt: string,
+          category: string[],
+        slug: string,
+        content: string,
+}
+
+
 import Post from "../../components/Post.astro";
 
 export async function getStaticPaths() {
@@ -32,7 +42,7 @@ markdown
 
   const json = await response.json();
 
-  const paths = json.data.posts.map((post) => ({
+  const paths = json.data.posts.map((post: Post) => ({
     params: { slug: post.slug },
     props: { post },
   }));

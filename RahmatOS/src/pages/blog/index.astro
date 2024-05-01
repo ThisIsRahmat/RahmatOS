@@ -4,7 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 
 
 interface Post {
-  title: string;
+  title: string,
+            overview: string,
+          publishedAt: string,
+          category: string[],
+        slug: string,
+
 }
 
 const query = {
@@ -55,7 +60,7 @@ console.log(posts)
 
 <div class="pt-8">
     {
-      json.data.posts.map((post) => (
+      json.data.posts.map((post: Post) => (
         <div class="gap-x-8 ">
         <a href=`/blog/${post.slug}`>
           <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
