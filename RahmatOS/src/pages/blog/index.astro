@@ -2,74 +2,42 @@
 
 import Layout from '../../layouts/Layout.astro';
 
-
 interface Post {
-  title: string,
-            overview: string,
-          publishedAt: string,
-          category: string[],
-        slug: string,
-
+  title: string;
+  overview: string;
+  publishedAt: string;
+  category: string[];
+  slug: string;
 }
 
 const query = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-   query: `
-      {
-           posts(orderBy: publishedAt_ASC) {
-          title
-          overview
-          publishedAt
-          category
-        slug
-        
-         
-        
-        }
-      }`,
-  }),
+  // ... your query definition here
 };
 
 const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
-const json = await response.json()
+const json = await response.json();
 
-const posts: Post[] = json.data;
-
-
+const posts: Post[] = json.data.posts; // Store the data in posts
 
 ---
 
 
 <Layout title="Books">
 
-   <h1
-                    class="text-3xl  tracking-tighter  font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text "              
-                    
-                    >
+  <h1 class="text-3xl tracking-tighter font-display font-normal md:text-6xl lg:text-4xl xl:text-4xl text ">
+    Blogs
+  </h1>
 
-
-                   Blogs
-                    </h1>
-
-
-<div class="pt-8">
-    {
-      json.data.posts.map((post: Post) => (
-        <div class="gap-x-8 ">
-        <a href=`/blog/${post.slug}`>
+  <div class="pt-8">
+    {posts.map((post: Post) => (
+      <div class="gap-x-8 ">
+        <a href={`/blog/${post.slug}`}>
           <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
- <h2>{post.category}</h2>
-          </a>
-        </div>
-      ))
-    }
+          <h2>{post.category}</h2>
+        </a>
+      </div>
+    ))}
+  </div>
 
-</div>
-<!-- Work on fetching books from literal
---!>
-
+  
 </Layout>
-
-
