@@ -52,7 +52,7 @@ markdown
   return paths;
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as { post: Post };
   console.log(post.content.markdown)
 
 ---
