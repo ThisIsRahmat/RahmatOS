@@ -4,12 +4,14 @@ import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
 
-    const date = [
+    const dates = [
         "123",
         "456",
     ]
 
-    return date;
+     return dates.map((date) => ({
+    params: { date },
+  }));
 }
 ---
 
