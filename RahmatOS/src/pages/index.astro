@@ -17,6 +17,40 @@ const socials = [
   
 ]
 
+
+
+const query = {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+   query: `
+      {
+           posts(orderBy: publishedAt_ASC) {
+          title
+          overview
+          publishedAt
+          category
+        slug
+        
+         
+        
+        }
+      }`,
+  }),
+};
+
+const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
+const json = await response.json()
+console.log("This is json")
+
+console.log(json)
+const posts: Post[] = json.data;
+console.log("This is posts")
+
+console.log(posts)
+
+
+
 ---
 
 <Layout title="Rahmat">
@@ -120,45 +154,24 @@ const socials = [
     </SectionContainer>
 
 
-      <!-- Projects -->
-    <SectionContainer>
 
-    <h2 class="font-medium text-xl  text-h4  my-4 ">
-                Previous Projects
-            </h2>
-            
-<div  class="grid scroll-m-24  gap-5 grid-cols-1 md:grid-cols-2 w-full">
-  {projects.map((project) => (
-      <div class="  flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl   sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
-       
-       
-          <a href={project.link}>
-            <p class=" text-xl md:text-3xl  content pb-2 ">
-
-            
-            {project.name} 
-			  
-            </p>
-			<!-- <div class="content break-words  text-2xl font-medium leading-10 tracking-tight lg:tracking-tighter ">
---->
-
-<div>
-                                        <p class="text-base  xl:text-2xl mt-4">{project.description}</p>
-                                    </div>
-          </a>
-
-
-      </div>
-      ))}
-</div>
-</div>
-
-
-	</SectionContainer>
 
       <!-- Blog -->
     <SectionContainer>
+<h1 class="text-2xl font-semibold"> Latest post</h1>
+<div class="pt-4">
+    {
+      json.data.posts.map((post) => (
+        <div class="gap-x-8 ">
+        <a href=`/blog/${post.slug}`>
+          <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
+ <h2>{post.category}</h2>
+          </a>
+        </div>
+      ))
+    }
 
+</div>
 
 	</SectionContainer>
 

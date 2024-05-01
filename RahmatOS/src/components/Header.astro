@@ -3,8 +3,9 @@
 
 const navigations = [
 
-  
+
   {name: "Blog", href: "/blog"},
+
     {name: "Bookmarks", href: "/bookmarks"},
 
 
@@ -15,8 +16,8 @@ const navigations = [
 <header class="">
 
   <nav class="flex items-center justify-between py-12" aria-label="Global">
-    <div class="flex lg:flex-1 text-sm">
-      <a href="/" class="-m-1.5 p-1.5 tracking-tighter  font-display hover:underline hover:text-[#1c63f1]  hover:underline-offset-2">
+    <div class="flex lg:flex-1 text-lg">
+      <a href="/" class="-m-1.5 p-1.5 tracking-tighter md:text-xl text-lg  font-display hover:underline hover:text-[#1c63f1]  hover:underline-offset-2">
       Rahmat Junaid
            </a>
     </div>
@@ -28,7 +29,7 @@ const navigations = [
   {navigations.map((nav) => (
        
        
-          <a href={nav.href} class="text-sm leading-6 >
+          <a href={nav.href} class="text-lg leading-6 >
             <p class="md:text-xl text-lg ">
               <span class="hover:underline hover:text-[#1c63f1] text-neutral-500 hover:underline-offset-4"> {nav.name} </span>
             </p>

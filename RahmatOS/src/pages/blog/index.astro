@@ -53,37 +53,21 @@ console.log(posts)
                     </h1>
 
 
+<div class="pt-8">
     {
       json.data.posts.map((post) => (
-        <div>
+        <div class="gap-x-8 ">
         <a href=`/blog/${post.slug}`>
-          <h2>{post.title}</h2>
-<p></p>
+          <h2 class="text-xl hover:text-[#1c63f1] hover:underline">{post.title}</h2>
+ <h2>{post.category}</h2>
           </a>
         </div>
       ))
     }
 
-
+</div>
 <!-- Work on fetching books from literal
-const response = await fetch("https://literal.club/graphql/",
-  {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({
-      query: `
-        query getFilm ($id:ID!) {
-          film(id: $id) {
-            title
-            releaseDate
-          }
-        }
-      `,
-      variables: {
-        id: "ZmlsbXM6MQ==",
-      },
-    }),
-  }); --!>
+--!>
 
 </Layout>
 

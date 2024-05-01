@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { postFragment } from "../../../fragments/posts";
+import Post from "../../components/Post.astro";
 
 export async function getStaticPaths() {
   const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
     title
 
     content {
-      markdown
+markdown
     }
   }
       }`,
@@ -49,13 +50,10 @@ const { post } = Astro.props;
 
 <Layout title="Blog">
 
-<h3>
+<h3 class="text-4xl ">
 {post.title}
 </h3>
-<p>
-{post.category}
-</p>
-<p>
-{post.content.markdown}
-</p>
+
+
+ <Post post={post} />
 </Layout>
