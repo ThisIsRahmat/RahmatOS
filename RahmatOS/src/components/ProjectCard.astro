@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+}
+
+const { entry } = Astro.props;
+---
+
+<div class="grid truncate">
+    <div class="font-semibold ">
+     <p> {entry.data.title} </p>
+    
+    </div>
+    <div class="text-sm">
+      {entry.data.description}
+    </div>
+
+    <!---
+    to-do: add tech stack
+      <div class="text-sm">
+            
+      {entry.data.stack.map(s => (
+
+        <span className="inline-flex items-center rounded-md bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-600">
+
+{s}
+
+</span>
+
+    
+          ))}
+
+    </div>
+
+    --->
+  </div>
+ 
+

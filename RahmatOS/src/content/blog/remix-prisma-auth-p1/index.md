@@ -1,5 +1,5 @@
 ---
-title: "Building user sign-up flow in Remix, Prisma and Superbase - part 1"
+title: "Building user sign-up flow in Remix, Prisma and Superbase "
 description: "Building user authenthication part 1"
 date: "May 1 2024"
 draft: false

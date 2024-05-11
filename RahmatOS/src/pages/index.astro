@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
+import ProjectCard from "@components/ProjectCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
@@ -56,11 +57,11 @@ const work = await Promise.all(
     
           </p>
           <p class="animate">
-           I am currently building my first saas, <a href="https://usescreenly.com/"> <span class="text-blue-600 hover:uppercase hover:bg-blue-600 hover:text-white"> Screenly, </span> </a>   a one-way video interviewing platform to simplify candidate screening.</p>
+           I am currently building my first saas,  Screenly, (currently in private beta)  a one-way video interviewing platform to simplify candidate screening.</p>
 
           </p>
           <p class="animate">
-             Outside of technichal work I enjoy <a href="/books"> <span class=" hover:bg-indigo-500 hover:text-white underline underline-offset-4  decoration-2 decoration-indigo-500">reading</span>, <a> traveling and amateur film photography.
+             Outside of technichal work I enjoy <a href="/books"> <span class=" hover:bg-indigo-500 hover:text-white underline underline-offset-4  decoration-2 decoration-indigo-500">reading</span> </a> traveling and amateur film photography.
                     </p>
         </article>
       </section>
@@ -69,37 +70,98 @@ const work = await Promise.all(
   
 
           <h5 class="font-semibold text-black dark:text-white">
-      Now
+      Now  (my current short term goals)
           </h5>
-          <div class="flex inline-flex gap-x-2">
+
+      <div class="grid gap-x-2">
             <p class="font-bold">
-       Currently reading
+       Web development
         </p>
-        <span>
-           ->
-        </span>
+       
  <ul class="">
 <li >
-Crying in H Mart by Michelle Zauner
+I am building web products for fun and to build businesses
+</li>
+
+<!---
+<li>
+In the longterm I would love to pay off my student loan and buy a house purely from money made from internet business.
+</li>
+
+-->
+ </ul>
+
+</div>
+
+<div class="grid gap-x-2">
+            <p class="font-bold">
+       Improving thisisrahmat.com
+        </p>
+       
+
+  
+ <ul class="">
+<li >
+
+<span>
+->
+</span>
+Fetch books data from api and add books to /books route
+</li>
+<li >
+
+<li >
+
+<span>
+->
+</span>
+Add images to my blog posts
+</li>
+<li >
+
+<span>
+->
+</span>
+Add dynamic book covers and images to the /books
+</li>
+<li >
+
+<span>
+->
+</span>
+Add a /photography route and display my travel photos
 </li>
  </ul>
 
 </div>
 
-    <div class="flex inline-flex gap-x-2">
-            <p class="font-bold">
-       Currently watching
-        </p>
-        <span>
-           ->
-        </span>
- <ul class="">
-<li >
-One Day
-</li>
- </ul>
- </div>
+
+     
           </section>
+
+<!---
+      <section class="animate pt-8 space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+           Projects
+          </h5>
+
+
+
+          <Link href="/projects">
+            See all projects
+          </Link> 
+        </div>
+        <div class="grid  gap-4">
+          {projects.map(project => (
+         
+              <ProjectCard entry={project} />
+       
+          ))}
+        </div>
+      </section>
+
+ --->
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
@@ -121,27 +183,7 @@ One Day
 
     
 
-<!--
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h5>
-          <Link href="/projects">
-            See all projects
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-	  -->
 
       <section class="animate space-y-4">
         <h5 class="font-semibold text-black dark:text-white">
