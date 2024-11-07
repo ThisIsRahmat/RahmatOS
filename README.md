@@ -1,2 +1,7 @@
+
+
 # RahmatOS
-My personal site
+
+Personal site built using the AstroJS Framework.
+
+
