@@ -23,6 +23,12 @@ export const BOOK: Metadata = {
     DESCRIPTION: "Books I have read and loved",
   };
 
+
+
+export const DAILY: Metadata = {
+  TITLE: "Daily",
+  DESCRIPTION: "A habit tracker of my daily learning",
+};
   export const BOOKMARK: Metadata = {
     TITLE: "Bookmark",
     DESCRIPTION: "My favourite reads on the internet",
