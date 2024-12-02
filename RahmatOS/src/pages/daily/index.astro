@@ -1,0 +1,30 @@
+---
+
+import PageLayout from "@layouts/PageLayout.astro";
+import { DAILY } from "@consts";
+import Container from "@components/Container.astro";
+---
+
+<PageLayout title={DAILY.TITLE} description={DAILY.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+      <p class=" text-2xl">
+        {DAILY.TITLE}
+        </p>
+      </div>
+
+      <p class=" font-medium">
+         I  try to complete 90 mins of technical studying or practice everyday and log it on my site as a public habit tracker.
+        </p>
+
+<div class="shadow-md p-4 border rounded-md">
+  <p class="  text-red-500">
+        I am on holiday so I am not presently tracking any work however I plan to get this all setup by the middle of December.
+        </p>
+
+        </div>
+
+        </div>
+          </Container>
+</PageLayout>
