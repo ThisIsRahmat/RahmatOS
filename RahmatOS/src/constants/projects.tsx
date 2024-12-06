@@ -7,7 +7,7 @@ export const projects = [
     description:
       "An AI Powered Interview Coach to help you land your dream job",
     thumbnail: interviewgenie,
-    // images: [sidefolioAceternity, sidefolioAceternity2],
+    images: [],
     stack: ["Nextjs", "Tailwindcss", "Postgres"],
     slug: "interviewgenie",
     content: (
