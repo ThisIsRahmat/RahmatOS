@@ -30,13 +30,12 @@ export const Projects = () => {
               key={project.href}
               className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4"
             >
-              <Image
-                src={project.thumbnail}
-                alt="thumbnail"
-                height="200"
-                width="200"
-                className="rounded-md"
-              />
+             <Image
+            src={project.thumbnail || "/images/placeholder.png"} // Provide a fallback image
+            alt={project.title || "Project thumbnail"}
+            height={200}
+            width={200}
+          />
               <div className="flex flex-col justify-between">
                 <div>
                   <Heading
