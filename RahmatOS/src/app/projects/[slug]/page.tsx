@@ -44,7 +44,7 @@ export default function SingleProjectPage({
   }
   return (
     <Container>
-      <SingleProduct product={projects[0]} />
+      <SingleProduct product={projects} />
     </Container>
   );
 }
