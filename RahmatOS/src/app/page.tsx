@@ -30,14 +30,17 @@ export default function Home() {
         </Paragraph>
       <Paragraph className=" mt-2">
   
-        I am currently exploring AI products, particularly around <Highlight>AI agents</Highlight> and <Highlight>conversational AI</Highlight>
+        I am currently exploring and hacking on AI products, particularly around <Highlight>AI agents</Highlight> and <Highlight>conversational AI</Highlight>
 
 
       </Paragraph>
-      <Paragraph className=" mt-2 text-red-400  shadom-md flex ">
-I am launching a substack documenting my explorations, called Talking AI please subscribe<Link href="https://talkingai.substack.com/" className="hover:text-blue-600"> here </Link>
+      <Paragraph className=" bg-gray-900 mt-8 px-2 py-2.5 rounded-xl text-white shadom-md flex ">
+I am launching a substack documenting my explorations in AI, called Talking AI please subscribe <Link href="https://talkingai.substack.com/" className="hover:text-blue-600 underline pl-0.5">here </Link>
 
 </Paragraph>
+
+
+
       <TechStack />
       <Heading
         as="h2"
@@ -54,7 +57,7 @@ I am launching a substack documenting my explorations, called Talking AI please 
        Let&apos;s connect
       </Heading>
 
-      <Paragraph className=" mt-2">
+      <Paragraph className=" ">
   
       If you want to get in touch with you can find me here:
       
@@ -63,7 +66,7 @@ I am launching a substack documenting my explorations, called Talking AI please 
 
 
 <Paragraph className="mb-8">
-<div className="flex text-sm mt-4 space-x-2 flex-wrap">
+<div className="flex text-sm  space-x-2 flex-wrap">
         {socials.map((item) => (
           <>
           <Link href={item.href}>
