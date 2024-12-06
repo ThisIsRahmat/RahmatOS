@@ -12,7 +12,7 @@ export const Projects = () => {
   return (
     <div>
       <div className="grid grid-cols-1  gap-10">
-        {projects.map((project: product, idx: number) => (
+        {projects.map((project: Product, idx: number) => (
           <motion.div
             key={project.href}
             initial={{
