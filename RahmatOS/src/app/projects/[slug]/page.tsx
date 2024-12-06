@@ -43,9 +43,10 @@ export default function SingleProjectPage({
     redirect("/projects");
   }
   return (
-    // to-do fix type product error
-    // <Container>
-    //   <SingleProduct product={projects} />
-    // </Container>
+    // to-do fix type error
+    <Container>
+     
+<span>Need to fix my type errors</span>
+    </Container>
   );
 }
