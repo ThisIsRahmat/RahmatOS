@@ -59,7 +59,7 @@ I am launching a substack documenting my explorations in AI, called Talking AI p
 
       <Paragraph className=" ">
   
-      If you want to get in touch with you can find me here:
+      If you want to get in touch with me you can find me here:
       
 
 </Paragraph>
