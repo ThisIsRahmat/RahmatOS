@@ -1,5 +1,6 @@
 "use client";
-import { Product } from "@/types/products";
+
+import { Product } from "@/types/products"; // Import the Product type
 import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import { Heading } from "./Heading";
@@ -7,10 +8,15 @@ import { Paragraph } from "./Paragraph";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export const SingleProduct = ({ product }) => {
+interface SingleProductProps {
+  product: Product;
+}
+
+export const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
   const [activeImage, setActiveImage] = useState<StaticImageData | string>(
-    product.thumbnail
+    product.thumbnail || "" // Default to an empty string if thumbnail is undefined
   );
+
   return (
     <div className="py-10">
       <motion.div
@@ -28,17 +34,19 @@ export const SingleProduct = ({ product }) => {
         key={product.slug}
         className="relative"
       >
-        <Image
-          src={activeImage}
-          alt="thumbnail"
-          height="1000"
-          width="1000"
-          className="rounded-md object-contain"
-        />
+        {activeImage && (
+          <Image
+            src={activeImage}
+            alt="thumbnail"
+            height="1000"
+            width="1000"
+            className="rounded-md object-contain"
+          />
+        )}
         <div className="absolute bottom-0 bg-white h-40 w-full [mask-image:linear-gradient(to_bottom,transparent,white)]" />
       </motion.div>
       <div className="flex flex-row justify-center my-8 flex-wrap">
-        {product.images.map((image, idx) => (
+        {product.images?.map((image, idx) => (
           <button
             onClick={() => setActiveImage(image)}
             key={`image-thumbnail-${idx}`}
@@ -59,7 +67,7 @@ export const SingleProduct = ({ product }) => {
           {product.stack?.map((stack: string) => (
             <span
               key={stack}
-              className="text-xs  md:text-xs lg:text-xs bg-gray-50 px-2 py-1 rounded-sm text-secondary"
+              className="text-xs md:text-xs lg:text-xs bg-gray-50 px-2 py-1 rounded-sm text-secondary"
             >
               {stack}
             </span>
@@ -86,9 +94,9 @@ export const SingleProduct = ({ product }) => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
         >
           <path d="M5 12l14 0"></path>
