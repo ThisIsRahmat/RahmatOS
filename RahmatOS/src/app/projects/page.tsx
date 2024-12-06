@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
 };
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
     <Container>
       <span className="text-4xl">⚡</span>
