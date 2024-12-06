@@ -7,7 +7,7 @@ import { Paragraph } from "./Paragraph";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export const SingleProduct = ({ product }: { product: Product }) => {
+export const SingleProduct = ({ product }) => {
   const [activeImage, setActiveImage] = useState<StaticImageData | string>(
     product.thumbnail
   );
