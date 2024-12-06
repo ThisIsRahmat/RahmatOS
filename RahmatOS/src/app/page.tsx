@@ -70,7 +70,7 @@ I am launching a substack documenting my explorations in AI, called Talking AI p
         {socials.map((item) => (
           <>
           <Link href={item.href}>
-     <span className="hover:text-blue-600" key={item.title}>
+     <span className="hover:text-blue-600" key={item.label}>
 {item.label}
       </span>
       </Link>
