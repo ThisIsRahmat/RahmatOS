@@ -5,7 +5,7 @@ import { Paragraph } from "@/components/Paragraph";
 import { SingleProduct } from "@/components/Product";
 import { Projects } from "@/components/Projects";
 import { projects } from "@/constants/projects";
-import { Product } from "@/types/projects";
+import { Product } from "@/types/products";
 import { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
