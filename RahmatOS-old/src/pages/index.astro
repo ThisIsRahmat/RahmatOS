@@ -1,0 +1,164 @@
+---
+import { getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import Link from "@components/Link.astro";
+import { dateRange } from "@lib/utils";
+import { SITE, HOME, SOCIALS } from "@consts";
+
+const blog = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+const allwork = (await getCollection("work"))
+  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+
+const work = await Promise.all(
+  allwork.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
+---
+
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+    <div class="inline-flex space-x-4">
+      <img
+        src="/assets/profile.png"
+        alt="Illustration of Rahmat"
+        width={160}
+        height={160}
+        class="rounded-full h-24 w-24 p-4"
+      />
+      <h4 class="pb-8 mt-auto text-2xl font-semibold text-black dark:text-white">
+        Hi, I'm Rahmat 🇬🇧
+      </h4>
+    </div>
+
+    <div class="space-y-16">
+      <section>
+        <article class="space-y-4">
+          <p>
+            I am an Engineer currently exploring my interests in conversational AI and AI agents.
+          </p>
+          <p>
+            My technical stack is primarily:
+            <span class="text-[#1446a0]">Python</span>,
+            <span class="text-[#bb4430]">TypeScript</span>, and
+            <span class="text-[#3d348b]">JavaScript</span>. <br />I am also certified as a
+            <span class="font-semibold">Certified Kubernetes Administrator</span> (CKA) and an
+            <span class="font-semibold">AWS Solutions Architect</span>.
+          </p>
+          <p>
+            I am currently building my first SaaS product,
+            <a href="https://interviewgenie.co/">Interview Genie</a>, a conversational AI tool that helps you prepare for job interviews.
+          </p>
+          <p>Outside of technical work, I enjoy reading, traveling, and listening to podcasts.</p>
+        </article>
+      </section>
+
+      <section class="space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">Projects</h5>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-2">
+            <p class="font-bold">Interview Genie</p>
+            <p>A conversational AI that helps people prepare for interviews.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">Recent Freelance Work</h5>
+
+        <div class="space-y-2">
+          <p class="font-bold">Fullstack Developer <span>@</span> Stealth Project</p>
+          <p class="text-sm font-semibold">
+            <span class="text-[#0064a5]">Postgres</span>,
+            <span class="text-[#38bdf8]">Tailwind CSS</span>,
+            <span class="text-[#3ecf8e]">Supabase</span>,
+            <span class="text-[#0070f3]">Next.js</span>
+          </p>
+          <p>Leading the design and development of a matchmaking platform from scratch.</p>
+          <p>This project is an end-to-end solo effort, so I am the solo designer and developer of the project.</p>
+        </div>
+
+        <div class="space-y-2">
+          <p class="font-bold">Frontend Developer <span>@</span> Apothecary Network</p>
+          <p class="text-sm font-semibold">
+            <span class="text-[#44bba4]">Tailwind CSS</span>,
+            <span class="text-[#f7b32b]">HTML</span>,
+            <span class="text-[#ef476f]">Vanilla JS</span>
+          </p>
+          <div class="grid grid-cols-1 justify-items-center">
+            <img
+              src="/assets/apothecary-network.png"
+              alt="Screenshot of Apothecary Network Demo 1"
+              class="rounded-lg w-3/4 max-w-md h-auto"
+            />
+          </div>
+          <p>
+            Built a frontend demo for The Upsetters' "Apothecary Network" project as part of Watershed Bristol's More Than AI Sandbox.
+          </p>
+          <p>
+            The project explored connections between natural intelligence, artificial intelligence, and their impacts on climate change, community sentiments, and access to green space.
+          </p>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">Now (my short-term goals)</h5>
+        <div>
+          <p class="font-bold">1. Building and scaling my first SaaS product</p>
+          <ul>
+            <li>
+              I am currently building
+              <a class="hover:underline" href="https://interviewgenie.co/">Interview Genie</a>, an AI interview coach, currently in private beta.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-bold">2. Improving thisisrahmat.com</p>
+          <ul>
+            <li>- Fetch books data from API and add books to the /books route</li>
+            <li>- Add images to my blog posts</li>
+            <li>- Add dynamic book covers and images to the /books</li>
+            <li>- Add a /photography route and display my travel photos</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">Let's Connect</h5>
+        <p>
+          If you want to get in touch with me about something or just to say hi, reach out on social media or send me an email.
+        </p>
+        <ul class="flex flex-wrap gap-2">
+          {SOCIALS.map((SOCIAL) => (
+            <li class="flex gap-x-2">
+              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
+                {SOCIAL.NAME}
+              </Link>
+              {"/"}
+            </li>
+          ))}
+          <li>
+            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
+              {SITE.EMAIL}
+            </Link>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

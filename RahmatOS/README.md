@@ -1,5 +1,11 @@
+## Sidefolio - Portfolio website template
 
+As seen on [Aceternity UI](https://ui.aceternity.com/templtes/sidefolio)
 
-# RahmatOS
+## Built with
+- Next.js
+- Tailwindcss
+- Framer motion
+- MDX
 
-Personal site built using the AstroJS Framework
+Checkout all the templates at [Aceternity UI](https://ui.aceternity.com/templates)
