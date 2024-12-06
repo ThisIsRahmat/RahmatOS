@@ -12,7 +12,7 @@ interface SingleProductProps {
   product: Product;
 }
 
-export const SingleProduct = ({ product : Product  }) => {
+export const SingleProduct = ({ product   }) => {
   const [activeImage, setActiveImage] = useState<StaticImageData | string>(
     product.thumbnail || "" // Default to an empty string if thumbnail is undefined
   );
