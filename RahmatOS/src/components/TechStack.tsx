@@ -56,7 +56,6 @@ export const TechStack = () => {
             className="text-sm border rounded-full p-1 shadow-sm"
             style={{
               color: item.text_color,
-
               borderColor: item.bg_color,
             }}
           >
