@@ -66,7 +66,7 @@ export const TechStack = () => {
 
       <div className="mt-2">
         <Paragraph>
-          I am also{" "}
+          I am also a {" "}
           <span className="font-bold">
             {" "}
             Certified Kubernetes Administrator (CKA)
@@ -75,7 +75,8 @@ export const TechStack = () => {
           <span className="font-bold">
             AWS Certified Solutions Architect{" "}
           </span>{" "}
-          certified.
+   
+  
         </Paragraph>
       </div>
     </div>

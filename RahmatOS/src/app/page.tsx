@@ -22,7 +22,7 @@ export default function Home() {
       />
       <Heading className="font-black">Hello, I&apos;m Rahmat</Heading>
       <Paragraph className="max-w-xl mt-2">
-        I am a <Highlight>Product and Customer Engineer </Highlight> based in the UK 🇬🇧
+        I am a <Highlight>Product Engineer </Highlight> based in the UK 🇬🇧
       </Paragraph>
       <Paragraph className="max-w-xl mt-2">
         I enjoy <Highlight>building products</Highlight> and web apps with a
