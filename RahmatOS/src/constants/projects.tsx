@@ -1,5 +1,4 @@
-
-import interviewgenie from 'public/images/interviewgenie.png'
+import interviewgenie from "public/images/interviewgenie.png";
 export const projects = [
   {
     href: "https://interviewgenie.co/",
@@ -7,7 +6,7 @@ export const projects = [
     description:
       "An AI Powered Interview Coach to help you land your dream job",
     thumbnail: interviewgenie,
-    images: [],
+    images: [interviewgenie],
     stack: ["Nextjs", "Tailwindcss", "Postgres"],
     slug: "interviewgenie",
     content: (
@@ -31,5 +30,4 @@ export const projects = [
       </div>
     ),
   },
-
 ];

@@ -45,8 +45,7 @@ export default function SingleProjectPage({
   return (
     // to-do fix type error
     <Container>
-     
-<span>Need to fix my type errors</span>
+      <span>Need to fix my type errors</span>
     </Container>
   );
 }

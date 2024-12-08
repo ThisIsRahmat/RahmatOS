@@ -1,5 +1,6 @@
 import React from "react";
 import { Heading } from "./Heading";
+import { Paragraph } from "@/components/Paragraph";
 
 export const TechStack = () => {
   const stack = [
@@ -55,13 +56,28 @@ export const TechStack = () => {
             className="text-sm border rounded-full p-1 shadow-sm"
             style={{
               color: item.text_color,
-              
+
               borderColor: item.bg_color,
             }}
           >
             {item.title}
           </span>
         ))}
+      </div>
+
+      <div className="mt-2">
+        <Paragraph>
+          I am also{" "}
+          <span className="font-bold">
+            {" "}
+            Certified Kubernetes Administrator (CKA)
+          </span>{" "}
+          and{" "}
+          <span className="font-bold">
+            AWS Certified Solutions Architect{" "}
+          </span>{" "}
+          certified.
+        </Paragraph>
       </div>
     </div>
   );

@@ -8,6 +8,10 @@ import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
 
+import { Paragraph } from "@/components/Paragraph";
+import { Products } from "@/components/Products";
+import { TechStack } from "@/components/TechStack";
+
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
