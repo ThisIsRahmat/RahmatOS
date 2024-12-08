@@ -7,5 +7,9 @@ export const Bookmarks = [
     type: ["ML", "resource list"],
   },
 
-  {},
+  {title: "",
+    href: "https://www.thisisgrey.com/post/generative-design-and-the-future-of-creativity-ii",
+    description: " A blog post on generative design and the future of creativity",
+    type: ["blog"]
+  },
 ];
