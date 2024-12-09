@@ -19,9 +19,8 @@ export default async function Blog() {
 
   return (
     <Container>
-
       <Heading className="font-black pb-4">Blog</Heading>
-    
+
       <Blogs blogs={data} />
     </Container>
   );

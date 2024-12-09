@@ -1,6 +1,1 @@
-
-
-
-export const  Freelance = () => {
-    
-}
+export const Freelance = () => {};
