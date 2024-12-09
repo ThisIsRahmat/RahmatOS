@@ -15,7 +15,7 @@ export function Header() {
       </Link>
 
       <Paragraph>
-        <nav class="flex gap-1">
+        <nav className="flex gap-1">
           {/* <Link className="hover:text-[#312f51] hover:underline" href="/blog">
           blog
         </Link> */}
