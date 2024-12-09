@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rahmat Junaid - Developer",
-  description: "Rahmat Junaid is a product developer and AI engineer.",
+  title: "Rahmat Junaid ",
+  description: "Rahmat Junaid is an Engineer with an interest in applied AI.",
 };
 
 export default function RootLayout({
