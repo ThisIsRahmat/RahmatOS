@@ -13,7 +13,7 @@ export function Header() {
 
 
 
-      <Link href="/" underline={false}>
+      <Link href="/" >
         <div class="font-semibold">
           Rahmat
         </div>
