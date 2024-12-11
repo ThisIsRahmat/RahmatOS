@@ -17,7 +17,7 @@ export const WorkHistory = () => {
       {/* <span className="font-gray-400 text-sm sm:mt-10 mt-6 mb-2"> (click on the job title to see responsibilities)</span> */}
       {timeline.map((item, index) => (
         <div
-          className=" space-y-2 my-4"
+          className=" space-y-0.5 my-4"
           key={`timeline-${index}`}
         >
           <div
