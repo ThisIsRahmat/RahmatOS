@@ -9,6 +9,8 @@ import { TechStack } from "@/components/TechStack";
 import Image from "next/image";
 import { socials } from "@/constants/socials";
 import Link from "next/link";
+import { WorkHistory } from "@/components/WorkHistory";
+
 
 export default function Home() {
   return (
@@ -67,14 +69,15 @@ export default function Home() {
       >
         Recent Freelance Work
       </Heading>
-      <Freelance />
-      <Heading
+      <Freelance /> */}
+  
+  <Heading
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg sm:mt-10 mt-6 mb-4"
       >
-        Career
+     Work History 
       </Heading>
-      <Career /> */}
+      <WorkHistory />
 
       <Heading
         as="h2"
