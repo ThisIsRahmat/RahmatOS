@@ -4,7 +4,7 @@ import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
 import { Projects } from "@/components/Projects";
 import { Freelance } from "@/components/Freelance";
-import { Career } from "@/components/Career";
+
 import { TechStack } from "@/components/TechStack";
 import Image from "next/image";
 import { socials } from "@/constants/socials";
