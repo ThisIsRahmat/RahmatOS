@@ -33,7 +33,7 @@ export default function TILPage() {
         </Link>
       </Paragraph>
 
-      <TIL />
+      {/* <TIL /> */}
     </Container>
   );
 }

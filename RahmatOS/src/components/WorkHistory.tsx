@@ -30,7 +30,7 @@ export const WorkHistory = () => {
             <div>
               <Paragraph className="text-xs md:text-base lg:text-base font-semibold">
                 {item.title} @{" "}
-                <span className="text-xs md:text-lg lg:text-lg text-blue-700">
+                <span className="text-xs md:text-lg lg:text-lg ">
                   {item.company}
                 </span>
               </Paragraph>
