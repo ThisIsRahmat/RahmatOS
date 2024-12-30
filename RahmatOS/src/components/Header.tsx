@@ -20,10 +20,10 @@ export function Header() {
           blog
         </Link> */}
 
-          {/* <span>
+    {/* <span>
           {`/`}
 
-        </span> */}
+        </span>  */}
           <Link
             className="hover:text-[#312f51] hover:underline"
             href="/bookmarks"
@@ -31,13 +31,13 @@ export function Header() {
             Bookmarks
           </Link>
 
-          {/* <span>
+      <span>
           {`/`}
 
         </span>
 	        <Link className="hover:text-[#312f51] hover:underline" href="/til">
           TIL
-        </Link> */}
+        </Link> 
         </nav>
       </Paragraph>
     </div>
