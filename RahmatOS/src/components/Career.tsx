@@ -10,7 +10,7 @@ export const Career = () => {
         >
           {/* Left Column for Dates */}
           <div className="col-span-3 text-xs text-gray-600">
-            {role.time}
+            {role.date}
           </div>
 
           {/* Right Column for Details */}

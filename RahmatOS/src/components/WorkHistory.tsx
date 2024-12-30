@@ -1,16 +1,16 @@
 "use client";
 import { timeline } from "@/constants/timeline";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { Paragraph } from "./Paragraph";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 
 export const WorkHistory = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  // const toggleAccordion = (index: number) => {
+  //   setOpenIndex(openIndex === index ? null : index);
+  // };
 
   return (
     <motion.div>
@@ -22,7 +22,7 @@ export const WorkHistory = () => {
         >
           <div
             className="rounded-tr-md  flex flex-row rounded-br-md  py-2 cursor-pointer font-open"
-            onClick={() => toggleAccordion(index)}
+
           >
               <div>
             <Paragraph className="w-40">{item.date}</Paragraph>
