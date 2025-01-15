@@ -1,5 +1,12 @@
 export const bookmarks = [
   {
+    title: "Learning AI by Lee Rob",
+    href: "https://leerob.com/n/ai",
+    description:
+    "A great 101 intro to the basics of AI.",
+    type: ["blog", "AI", "resources"],
+  },
+  {
     title: "Chip Huyen - MLOPs Guide",
     href: "https://huyenchip.com/mlops/",
     description:
