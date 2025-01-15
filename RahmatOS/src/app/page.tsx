@@ -65,20 +65,19 @@ export default function Home() {
         For <span className="font-bold">2025</span> I would love to:
         <ul className="list-disc list-inside mt-2">
           <li>Rebuild Interview Genie </li>
-          <li>
-            Scale Interview Genie to{" "}
-            <Highlight> 1000 paying customers</Highlight>
-          </li>
+         <li>
+            Get <Highlight>1000 users on</Highlight> Interview Genie
+          </li> 
           <li>Read at least 25 books </li>
         </ul>
       </Paragraph>
 
       <Paragraph className="mt-2">
         I will be documenting my journey, sharing what I learn about building
-        and growing my Interview Genie, you can read{" "}
+        and growing Interview Genie {/* , you can read{" "}
         <Link className="hover:underline hover:text-blue-700" href="/blog">
           here
-        </Link>
+        </Link> */}
         .
       </Paragraph>
 
