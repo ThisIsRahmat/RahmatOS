@@ -36,7 +36,7 @@ export const timeline = [
     ],
   },
   {
-    company:  "Automation Logic",
+    company: "Automation Logic",
     title: "Consultant DevOps Engineer",
     date: "2018 - 2021",
     location: "London",

@@ -2,7 +2,7 @@ export const til = [
   {
     date: "Sat 14th December 2024",
     description:
-     "Completed the OpenAi's Assistants & Agents Build Hour Video and implemented my learning in the travel agents app"
+      "Completed the OpenAi's Assistants & Agents Build Hour Video and implemented my learning in the travel agents app",
   },
   {
     date: "Chip Huyen - MLOPs Guide",

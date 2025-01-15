@@ -1,11 +1,3 @@
-
-
-export default function BlogTypePage(){
-
-    return (
-        <>
-
-        </>
-    )
-
+export default function BlogTypePage() {
+  return <></>;
 }

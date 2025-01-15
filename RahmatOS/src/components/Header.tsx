@@ -16,14 +16,11 @@ export function Header() {
 
       <Paragraph>
         <nav className="flex gap-1">
-          {/* <Link className="hover:text-[#312f51] hover:underline" href="/blog">
-          blog
-        </Link> */}
+          <Link className="hover:text-[#312f51] hover:underline" href="/blog">
+            Blog
+          </Link>
 
-    {/* <span>
-          {`/`}
-
-        </span>  */}
+          <span>{`/`}</span>
           <Link
             className="hover:text-[#312f51] hover:underline"
             href="/bookmarks"
@@ -31,13 +28,10 @@ export function Header() {
             Bookmarks
           </Link>
 
-      <span>
-          {`/`}
-
-        </span>
-	        <Link className="hover:text-[#312f51] hover:underline" href="/til">
-          TIL
-        </Link> 
+          {/* <span>{`/`}</span>
+          <Link className="hover:text-[#312f51] hover:underline" href="/til">
+            TIL
+          </Link> */}
         </nav>
       </Paragraph>
     </div>

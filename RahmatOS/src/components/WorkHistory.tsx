@@ -16,16 +16,10 @@ export const WorkHistory = () => {
     <motion.div>
       {/* <span className="font-gray-400 text-sm sm:mt-10 mt-6 mb-2"> (click on the job title to see responsibilities)</span> */}
       {timeline.map((item, index) => (
-        <div
-          className=" space-y-0.5 my-4"
-          key={`timeline-${index}`}
-        >
-          <div
-            className="rounded-tr-md  flex flex-row rounded-br-md  py-2 cursor-pointer font-open"
-
-          >
-              <div>
-            <Paragraph className="w-40">{item.date}</Paragraph>
+        <div className=" space-y-0.5 my-4" key={`timeline-${index}`}>
+          <div className="rounded-tr-md  flex flex-row rounded-br-md  py-2 cursor-pointer font-open">
+            <div>
+              <Paragraph className="w-40">{item.date}</Paragraph>
             </div>
             <div>
               <Paragraph className="text-xs md:text-base lg:text-base font-semibold">
@@ -39,7 +33,6 @@ export const WorkHistory = () => {
               </Paragraph>
             </div>
           </div>
-
 
           {/* to-do: add job responsibilities */}
 
