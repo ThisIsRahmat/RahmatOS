@@ -64,7 +64,7 @@ export default function Home() {
       <Paragraph className="mt-2">
         For <span className="font-bold">2025</span> I would love to:
         <ul className="list-disc list-inside mt-2">
-          <li>Rebuild my AI Interviewing Coaching Project, Interview Genie </li>
+          <li>Rebuild Interview Genie </li>
           <li>
             Scale Interview Genie to{" "}
             <Highlight> 1000 paying customers</Highlight>
