@@ -34,7 +34,7 @@ export default function Home() {
       </Paragraph>
 
       <Paragraph className=" bg-gray-900 mt-8 px-2 py-2.5 rounded-xl text-white shadom-md flex ">
-        I am launching a substack next month (February 2025) called Talking AI
+        I am launching a substack later this year called Talking AI
         please subscribe{" "}
         <Link
           href="https://talkingai.substack.com/"
@@ -52,10 +52,10 @@ export default function Home() {
       >
         Now
       </Heading>
-      <Paragraph className="mt-2">
-        My current goals are to explore the world of AI in-depth and have a
-        better foundational knowledge of how conversational AI system works.
-      </Paragraph>
+      {/* <Paragraph className="mt-2">
+        My current goals are to explore the world of AI agents in-depth and 
+        build *more* fullstack applications integrating AI and LLMs.
+      </Paragraph> */}
 
       <Paragraph className="max-w-xl mt-2">
         I am also trying to <Highlight>build my ideas</Highlight> and create
