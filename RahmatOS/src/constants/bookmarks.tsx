@@ -29,4 +29,13 @@ export const bookmarks = [
       "This blog is a get introduction to AI Agents. Lilian worked at openAI for more than 7 years, her entire blog is filled with some good stuff to read around AI ",
     type: ["blog", "LLM", "AI Agents"],
   },
+
+
+  {
+    title: "Knowing Machines",
+    href: "https://knowingmachines.org/critical-field-guide",
+    description:
+      "A guide to the critical field of working with ML datasets",
+    type: ["blog", "AI", "resources"],
+  },
 ];
