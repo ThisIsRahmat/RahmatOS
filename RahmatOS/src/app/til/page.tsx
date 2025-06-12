@@ -19,7 +19,7 @@ export default function TILPage() {
       <Container>
         <div className="space-y-8">
           <div>
-            <Heading className="font-black mb-10">100 Days of AI/Python</Heading>
+            <Heading className="font-black mb-10">100 Days of AI + Python</Heading>
 
             <Paragraph>
               I am currently exploring the world of AI, in particular{" "}
@@ -36,7 +36,7 @@ export default function TILPage() {
                 <li className="flex items-start gap-3">
                   <div className="mt-1 w-5 h-5 border-2 border-gray-300 rounded flex-shrink-0"></div>
                   <span className="text-gray-700">
-                    Complete my game <Highlight>RealOrAI</Highlight>, which I've had the domain for a while now
+                    Complete my game <Highlight>RealOrAI</Highlight>, which I&apos;ve had the domain for a while now
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
