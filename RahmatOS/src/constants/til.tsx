@@ -16,7 +16,7 @@ export const habits: HabitEntry[] = [
     dayNumber: 2,
     date: "2025-06-12",
     time: 45,
-    task:  "Continued on the boot.dev course completed the section where I built functiosn for the LLM to call, it was a good exercise in understanding os and I learnt how to check if one path is a parent of another. It was weirdly challenging thinking through the logic of my function but I also think I was sturggling a little bit because I was sleepy and couldn't concentrate. "
+    task:  "Continued on the boot.dev course worked on the section where I built function for the LLM to call, it was a good exercise in understanding os and I learnt how to check if one path is a parent of another. It was weirdly challenging thinking through the logic of my function but I also think I was sturggling a little bit because I was sleepy and couldn't concentrate. I used claude to help me but I am super intnentional about my usage, I always ask it to guide me to an answer and NOT  to give me the answer outright. I also switched to VSCode yesterday because I realised I have become a little over dependent on Cursor and it was making my dev skills incredibly bad. I really want to learn this challenge and not midnless tickbox each day. "
   
   },
 ];
