@@ -21,7 +21,18 @@ export default function BookmarksPage() {
         out.
       </Paragraph>
 
+      <div className="flex flex-col gap-2 pb-8">
+        <p>
+         🚧 This page is under construction. 🚧 
+        </p>
+      </div>
+
+<p className="font-semibold">
+ Currently reading </p>
+ <p>Careless People: A Cautionary Tale of Power, Greed, and Lost Idealism  by Sarah Wynn-Williams</p>
+
       {/* <Projects /> */}
+   
     </Container>
   );
 }

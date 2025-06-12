@@ -3,7 +3,7 @@ import { Heading } from "@/components/Heading";
 import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
 import { Projects } from "@/components/Projects";
-import { Freelance } from "@/components/Freelance";
+
 
 import { TechStack } from "@/components/TechStack";
 import Image from "next/image";
@@ -23,7 +23,7 @@ export default function Home() {
       />
       <Heading className="font-black">Hello, I&apos;m Rahmat</Heading>
       <Paragraph className="max-w-xl mt-2">
-        I am an <Highlight> Engineer</Highlight> and{" "}
+        I am an <Highlight> AI Engineer</Highlight> and{" "}
         <Highlight>Technologist</Highlight> based in the UK 🇬🇧
       </Paragraph>
 
@@ -33,7 +33,7 @@ export default function Home() {
         <Highlight>conversational AI</Highlight>
       </Paragraph>
 
-      <Paragraph className=" bg-gray-900 mt-8 px-2 py-2.5 rounded-xl text-white shadom-md flex ">
+      {/* <Paragraph className=" bg-gray-900 mt-8 px-2 py-2.5 rounded-xl text-white shadom-md flex ">
         I am launching a substack later this year called Talking AI
         please subscribe{" "}
         <Link
@@ -42,33 +42,33 @@ export default function Home() {
         >
           here{" "}
         </Link>
-      </Paragraph>
+      </Paragraph> */}
 
-      <TechStack />
+      {/* <TechStack /> */}
 
       <Heading
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg sm:mt-10 mt-6 mb-4"
       >
-        Now
+        Now (what I am doing)
       </Heading>
       {/* <Paragraph className="mt-2">
-        My current goals are to explore the world of AI agents in-depth and 
-        build *more* fullstack applications integrating AI and LLMs.
+        My current goals are to 
       </Paragraph> */}
 
       <Paragraph className="max-w-xl mt-2">
-        I am also trying to <Highlight>build my ideas</Highlight> and create
+      My current goals are to<Highlight>build my ideas</Highlight> and create
         more than I consume.
       </Paragraph>
       <Paragraph className="mt-2">
         For <span className="font-bold">2025</span> I would love to:
         <ul className="list-disc list-inside mt-2">
-          <li>Rebuild Interview Genie </li>
+          <li>Rebuild InterviewGenie and get my business off the ground</li>
          <li>
             Get <Highlight>1000 users on</Highlight> Interview Genie
           </li> 
           <li>Read at least 25 books </li>
+
         </ul>
       </Paragraph>
 
@@ -85,7 +85,26 @@ export default function Home() {
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg sm:mt-10 mt-6 mb-4"
       >
-        Things I have built
+        What I am learning
+      </Heading>
+      <div className="flex flex-col gap-1">
+      <Paragraph>
+     
+      I am currently exploring the world of AI agents in-depth and 
+      building *more* fullstack applications integrating AI and LLMs. 
+      </Paragraph>
+      <Paragraph>
+       As part of this  I am currently doing a 100 days of AI/Python challenge.
+      </Paragraph>
+      <Paragraph>
+      You can follow my learning journey <Link className="hover:underline hover:text-blue-700" href="/til">here</Link>.
+      </Paragraph>
+      </div>
+      <Heading
+        as="h2"
+        className="font-black text-lg md:text-lg lg:text-lg sm:mt-10 mt-6 mb-4"
+      >
+       What I am building
       </Heading>
       <Projects />
 

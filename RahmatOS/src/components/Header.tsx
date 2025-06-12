@@ -16,16 +16,23 @@ export function Header() {
 
       <Paragraph>
         <nav className="flex gap-1">
-          <Link className="hover:text-[#312f51] hover:underline" href="/blog">
-            Blog
+          <Link className="hover:text-[#312f51] hover:underline" href="/books">
+            Books
           </Link>
 
           <span>{`/`}</span>
-          <Link
+           <Link
             className="hover:text-[#312f51] hover:underline"
             href="/bookmarks"
           >
             Bookmarks
+          </Link>
+          <span>{`/`}</span>
+          <Link
+            className="hover:text-[#312f51] hover:underline"
+            href="/til"
+          >
+           100 Days of AI+Python
           </Link>
 
           {/* <span>{`/`}</span>

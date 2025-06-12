@@ -12,6 +12,8 @@ export default function TIL() {
             {til.date}
           </p>
           <p className="mt-2 text-sm text-gray-700">{til.description}</p>
+
+
         </div>
       ))}
     </div>
