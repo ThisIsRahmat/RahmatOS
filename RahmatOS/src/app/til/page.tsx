@@ -36,7 +36,7 @@ export default function TILPage() {
                 <li className="flex items-start gap-3">
                   <div className="mt-1 w-5 h-5 border-2 border-gray-300 rounded flex-shrink-0"></div>
                   <span className="text-gray-700">
-                    Complete my game <Highlight>RealOrAI</Highlight>, which I&apos;ve had the domain for a while now
+                    Complete my game <Highlight>RealOrAI</Highlight>, which I&apos;ve had the domain for a while now and made zero progress on it.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
