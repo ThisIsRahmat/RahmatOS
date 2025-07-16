@@ -38,4 +38,13 @@ export const bookmarks = [
       "A guide to the critical field of working with ML datasets",
     type: ["blog", "AI", "resources"],
   },
+
+  {
+    title: "Tao of React",
+    href: "https://alexkondov.com/tao-of-react/",
+    description:
+      "A guide to working with React",
+    type: ["blog", "React", "resources"],
+  },
+
 ];
