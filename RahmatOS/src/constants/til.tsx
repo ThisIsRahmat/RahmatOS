@@ -42,6 +42,45 @@ task:" I started the cs50 x AI course but then I just wasn't into it, too much d
 
 
 
-}
+},
+
+{
+  dayNumber: 5,
+  date: "2025-07-18",
+  time: 5,
+  task:"I just went through the ExecuteProgram review."
+  
+  
+  
+  
+  
+  },
+
+  {
+    dayNumber: 6,
+    date: "2025-07-19",
+    time: 5,
+    task:"I just went through the ExecuteProgram review."
+    
+    
+    
+    
+    
+    },
+
+    {
+      dayNumber: 7,
+      date: "2025-07-20",
+      time: 5,
+    task:"I  went through the ExecuteProgram review and read the first chapter of the DeepLearnign for coders book. Learnt a lot of key phrases and concepts - Transfer Learning and Overfitting"
+      
+      },
+
+      {
+        dayNumber: 8,
+        date: "2025-07-21",
+        time: 10,
+        task:"Went through the ExecuteProgram review and read a bit of the DeepLearnign for coders book. And I also started the second video of the DeepLearning for coders course: 'Deployment'"
+      },
 
 ];
