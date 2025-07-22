@@ -83,4 +83,13 @@ task:" I started the cs50 x AI course but then I just wasn't into it, too much d
         task:"Went through the ExecuteProgram review and read a bit of the DeepLearnign for coders book. And I also started the second video of the DeepLearning for coders course: 'Deployment'"
       },
 
+
+      {
+        dayNumber: 9,
+        date: "2025-07-22",
+        time: 10,
+        task:"Finished chapter 1 of the DeepLearnign book and started chapter 2. I need to start scheduling my study time for the beginnign of the day so I achieve more, it's always right at the end of the day before I go to bed which is why I've only been doing 5/10minutes"
+        
+        
+      },
 ];
