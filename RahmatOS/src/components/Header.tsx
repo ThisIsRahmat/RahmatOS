@@ -27,13 +27,13 @@ export function Header() {
           >
             Bookmarks
           </Link>
-          <span>{`/`}</span>
-          <Link
+          {/* <span>{`/`}</span> */}
+          {/* <Link
             className="hover:text-[#312f51] hover:underline"
             href="/til"
           >
            100 Days of AI+Python
-          </Link>
+          </Link> */}
 
           {/* <span>{`/`}</span>
           <Link className="hover:text-[#312f51] hover:underline" href="/til">
