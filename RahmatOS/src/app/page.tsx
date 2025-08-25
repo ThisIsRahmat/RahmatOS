@@ -34,28 +34,6 @@ export default function Home() {
       </Paragraph>
 
 
-      {/* <Paragraph className=" bg-gray-900 mt-8 px-2 py-2.5 rounded-xl text-white shadom-md flex ">
-        I am launching a substack later this year called Talking AI
-        please subscribe{" "}
-        <Link
-          href="https://talkingai.substack.com/"
-          className="hover:text-blue-600 underline pl-0.5"
-        >
-          here{" "}
-        </Link>
-      </Paragraph> */}
-
-      {/* <TechStack /> */}
-
-     
- 
-
-      {/* <div
-        as="h2"
-        className="font-black text-lg md:text-lg lg:text-lg sm:mt-10 mt-6 mb-4"
-      >
-        Let&apos;s connect
-      </Heading> */}
 
       <Paragraph className="sm:mt-10 mt-6 mb-4">
         If you want to get in touch with me you can find me here:
