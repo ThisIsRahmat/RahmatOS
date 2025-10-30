@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import bookmarksData from '../content/data/bookmarks.json';
+---
+
+<Layout title="Bookmarks – Rahmat Junaid">
+	<Navigation />
+
+	<section class="pt-28 md:pt-32 pb-14 md:pb-16">
+		<div>
+			<h1 class="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">Bookmarks</h1>
+			<p class="mt-3 text-[16px] leading-relaxed font-light text-gray-700">
+				A living collection of links worth revisiting.
+			</p>
+
+			<div class="mt-8 space-y-6">
+				{bookmarksData.map((bookmark) => (
+					<div class="border-l-2 border-gray-200 pl-4">
+						<h3 class="text-lg font-medium text-gray-900">
+							<a href={bookmark.href} class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">
+								{bookmark.title}
+							</a>
+						</h3>
+						<p class="mt-2 text-[16px] leading-relaxed font-light text-gray-700">
+							{bookmark.description}
+						</p>
+						<div class="mt-2 flex flex-wrap gap-2">
+							{bookmark.type.map((tag) => (
+								<span class="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
+									{tag}
+								</span>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+

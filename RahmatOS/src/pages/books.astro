@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Books – Rahmat Junaid">
+	<Navigation />
+
+	<section class="pt-28 md:pt-32 pb-14 md:pb-16">
+		<div>
+			<h1 class="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">Books</h1>
+			<p class="mt-3 text-[16px] leading-relaxed font-light text-gray-700">
+				Fair warning: some of these books are imported from an old Goodreads account from my teenage years. 
+				</p>
+				<p class="mt-3 text-[16px] leading-relaxed font-light text-gray-700">
+				I'm slowly curating the list, but in the meantime, please don't judge me too harshly for all the cringe.
+				</p>
+				<p class="mt-3 text-[16px] leading-relaxed font-light text-gray-700">
+				 Always open to book recommendations!
+			</p>
+
+			<!-- Currently Reading Section -->
+			<div id="currently-reading-section" class="mt-8" style="display: none;">
+				<h2 class="text-lg font-medium text-gray-900 mb-4">Currently Reading</h2>
+				<div id="currently-reading-container" class="flex gap-4 overflow-x-auto pb-4"></div>
+			</div>
+
+			<!-- Tabs Navigation -->
+			<div class="mt-8">
+				<div class="border-b border-gray-200" id="tabs">
+					<nav id="tabs-nav" class="-mb-px flex space-x-8" aria-label="Tabs">
+						<!-- Tabs will be dynamically inserted here -->
+					</nav>
+				</div>
+
+				<!-- Tab Content -->
+				<div id="tab-content-container" class="mt-6">
+					<div class="text-center py-12">
+						<p class="text-gray-500">Loading books...</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	interface Book {
+		id: string;
+		title: string;
+		cover?: string;
+		authors: Array<{ name: string }>;
+		description?: string;
+	}
+
+	interface ReadingState {
+		id: string;
+		status: string;
+		book: Book;
+		createdAt: string;
+	}
+
+	function renderBookCard(readingState: ReadingState) {
+		return `
+			<div class="relative group">
+				<div class="w-full aspect-[2/3] bg-gray-100 rounded shadow-sm overflow-hidden">
+					${readingState.book.cover
+						? `<img src="${readingState.book.cover}" alt="${readingState.book.title}" class="w-full h-full object-cover" />`
+						: '<div class="w-full h-full flex items-center justify-center text-gray-400">📖</div>'
+					}
+				</div>
+				<div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded flex flex-col justify-center items-center p-2 text-center">
+					<h3 class="text-white text-xs font-medium mb-1 line-clamp-3">${readingState.book.title}</h3>
+					<p class="text-gray-300 text-xs line-clamp-2">by ${readingState.book.authors.map(author => author.name).join(', ')}</p>
+				</div>
+			</div>
+		`;
+	}
+
+	function renderCurrentlyReadingCard(readingState: ReadingState) {
+		return `
+			<div class="relative group flex-shrink-0">
+				<div class="w-24 h-32 bg-gray-100 rounded shadow-sm overflow-hidden">
+					${readingState.book.cover
+						? `<img src="${readingState.book.cover}" alt="${readingState.book.title}" class="w-full h-full object-cover" />`
+						: '<div class="w-full h-full flex items-center justify-center text-gray-400">📖</div>'
+					}
+				</div>
+				<div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded flex flex-col justify-center items-center p-2 text-center">
+					<h3 class="text-white text-xs font-medium mb-1 line-clamp-2">${readingState.book.title}</h3>
+					<p class="text-gray-300 text-xs line-clamp-1">by ${readingState.book.authors.map(author => author.name).join(', ')}</p>
+				</div>
+			</div>
+		`;
+	}
+
+	async function loadBooks() {
+		try {
+			// Fetch from API (server-side caching handles this)
+			console.log('Fetching books data...');
+			const response = await fetch('/api/books?type=all');
+			if (!response.ok) {
+				throw new Error('Failed to fetch books');
+			}
+
+			const data = await response.json();
+			const { currentlyReading, wantToRead, finished } = data;
+
+			// Render currently reading section
+			if (currentlyReading && currentlyReading.length > 0) {
+				const section = document.getElementById('currently-reading-section');
+				const container = document.getElementById('currently-reading-container');
+				if (section && container) {
+					section.style.display = 'block';
+					container.innerHTML = currentlyReading.map(renderCurrentlyReadingCard).join('');
+				}
+			}
+
+			// Organize finished books by year
+			const booksByYear: { [year: string]: ReadingState[] } = {};
+			if (finished) {
+				finished.forEach((readingState: ReadingState) => {
+					const year = new Date(readingState.createdAt).getFullYear().toString();
+					if (!booksByYear[year]) {
+						booksByYear[year] = [];
+					}
+					booksByYear[year].push(readingState);
+				});
+			}
+
+			const sortedYears = Object.keys(booksByYear).sort((a, b) => parseInt(b) - parseInt(a));
+
+			// Render tabs
+			const tabsNav = document.getElementById('tabs-nav');
+			if (tabsNav) {
+				let tabsHTML = `
+					<button class="tab-btn whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm ${wantToRead && wantToRead.length > 0 ? 'border-gray-900 text-gray-900' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}" data-tab="tbr">
+						TBR (${wantToRead ? wantToRead.length : 0})
+					</button>
+				`;
+
+				sortedYears.forEach((year, index) => {
+					const isActive = index === 0 && (!wantToRead || wantToRead.length === 0);
+					tabsHTML += `
+						<button class="tab-btn whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm ${isActive ? 'border-gray-900 text-gray-900' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}" data-tab="${year}">
+							${year} (${booksByYear[year].length})
+						</button>
+					`;
+				});
+
+				tabsNav.innerHTML = tabsHTML;
+			}
+
+			// Render tab content
+			const tabContentContainer = document.getElementById('tab-content-container');
+			if (tabContentContainer) {
+				let contentHTML = `
+					<div class="tab-content ${wantToRead && wantToRead.length > 0 ? 'block' : 'hidden'}" id="tbr">
+						${wantToRead && wantToRead.length > 0
+							? `<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+									${wantToRead.map(renderBookCard).join('')}
+								</div>`
+							: '<p class="text-gray-500 text-center py-12">No books in your TBR list yet.</p>'
+						}
+					</div>
+				`;
+
+				sortedYears.forEach((year, index) => {
+					const isActive = index === 0 && (!wantToRead || wantToRead.length === 0);
+					contentHTML += `
+						<div class="tab-content ${isActive ? 'block' : 'hidden'}" id="${year}">
+							${booksByYear[year].length > 0
+								? `<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+										${booksByYear[year].map(renderBookCard).join('')}
+									</div>`
+								: `<p class="text-gray-500 text-center py-12">No books read in ${year}.</p>`
+							}
+						</div>
+					`;
+				});
+
+				// Show message if no books at all
+				if ((!currentlyReading || currentlyReading.length === 0) &&
+				    (!wantToRead || wantToRead.length === 0) &&
+				    (!finished || finished.length === 0)) {
+					contentHTML = '<div class="text-center py-12"><p class="text-gray-500">No books found. Make sure your Literal.club token is configured in the environment variables.</p></div>';
+				}
+
+				tabContentContainer.innerHTML = contentHTML;
+
+				// Add tab click handlers
+				const tabButtons = document.querySelectorAll('.tab-btn');
+				const tabContents = document.querySelectorAll('.tab-content');
+
+				tabButtons.forEach(button => {
+					button.addEventListener('click', function() {
+						const targetTab = this.getAttribute('data-tab');
+
+						// Remove active classes from all tabs
+						tabButtons.forEach(btn => {
+							btn.classList.remove('border-gray-900', 'text-gray-900');
+							btn.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+						});
+
+						// Add active classes to clicked tab
+						this.classList.remove('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+						this.classList.add('border-gray-900', 'text-gray-900');
+
+						// Hide all tab contents
+						tabContents.forEach(content => {
+							content.classList.add('hidden');
+							content.classList.remove('block');
+						});
+
+						// Show target tab content
+						const targetContent = document.getElementById(targetTab || '');
+						if (targetContent) {
+							targetContent.classList.remove('hidden');
+							targetContent.classList.add('block');
+						}
+					});
+				});
+			}
+		} catch (error) {
+			console.error('Error loading books:', error);
+			const tabContentContainer = document.getElementById('tab-content-container');
+			if (tabContentContainer) {
+				tabContentContainer.innerHTML = '<div class="text-center py-12"><p class="text-gray-500">Failed to load books. Please check your configuration.</p></div>';
+			}
+		}
+	}
+
+	// Load books when page is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', loadBooks);
+	} else {
+		loadBooks();
+	}
+</script>
+
+<style>
+	.line-clamp-1 {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
+
+	.line-clamp-2 {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+
+	.line-clamp-3 {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+	}
+</style>
