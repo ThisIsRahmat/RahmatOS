@@ -1,118 +1,136 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sanityClient } from '../lib/sanity';
+
+// Fetch blog posts from Sanity
+let posts: Array<{ title: string; slug: string; publishedAt: string }> = [];
+
+try {
+  const query = `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) {
+    title,
+    "slug": slug.current,
+    publishedAt
+  }`;
+  posts = await sanityClient.fetch(query);
+} catch (error) {
+  console.warn("Could not fetch blog posts from Sanity:", error);
+  // Posts will remain empty array, Writing section won't show
+}
+
+let nowContent = [
+  "Pursuing my MSc in AI",
+  "Planning to launch a newsletter/podcast all about AI next summer"
+];
+
+// Fetch currently reading from local JSON
+import * as fs from 'fs';
+import * as path from 'path';
+
+let currentBook = null;
+
+try {
+  const booksPath = path.join(process.cwd(), 'public', 'data', 'books.json');
+  if (fs.existsSync(booksPath)) {
+    const booksData = JSON.parse(fs.readFileSync(booksPath, 'utf-8'));
+    currentBook = booksData.currentlyReading?.[0]?.book;
+  }
+} catch (error) {
+  console.warn("Could not fetch currently reading book:", error);
+}
 ---
 
 <Layout title="Rahmat Junaid">
-	<div class="min-h-screen flex items-center justify-center py-12 md:py-16">
-		<div class="max-w-2xl">
-			<!-- Name -->
-			<h1 class="text-2xl font-normal text-gray-900 mb-8">Rahmat Junaid</h1>
-
-			<!-- Main Content -->
-			<div class="space-y-6 text-gray-700 leading-relaxed">
-				<p>
-					I'm a developer and AI engineer. I work on voice agents and conversational AI. Previously, I worked at Capgemini and Fly.io. I've been coding for 15 years and teaching for the second half.
+	<div class="max-w-2xl mx-auto">
+		
+		<!-- Photo & Bio -->
+		<section class="mb-16">
+			<!-- Photo (commented out - add later) -->
+		<!-- <div class="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-full overflow-hidden mb-8">
+			<img src="/images/me.jpg" alt="Rahmat Junaid" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+		</div> -->
+			
+			<div class="prose prose-gray max-w-none">
+				<p class="text-lg text-gray-800 leading-relaxed mb-6">
+					I'm a developer, AI engineer, & educator—always seeking new adventures.
+					I think deeply about people, products, and the future of technology. Currently exploring the world of voice agents and conversational AI.
+				</p>
+				
+				<p class="text-gray-600 mb-6">
+					Open to contract and freelance opportunities. If you're working on something cool, let's chat!
 				</p>
 
-				<p>
-					My life's work is to make technology easy to understand and interesting to learn about. I'm a husband, father, and a massive reading enthusiast. I last read <span id="last-book-title">loading...</span> by <span id="last-book-author">loading...</span>.
-				</p>
 
-				<p class="mt-8">
-					Some of my favorite essays include:
-				</p>
 
-				<ul class="list-none space-y-2 mt-4">
-					<li><a href="/blog" class="text-blue-600 hover:text-blue-700 underline">Things I Believe</a></li>
-					<li><a href="/blog" class="text-blue-600 hover:text-blue-700 underline">Developer Experience</a></li>
-					<li><a href="/blog" class="text-blue-600 hover:text-blue-700 underline">AI Voice Agents</a></li>
-					<li><a href="/blog" class="text-blue-600 hover:text-blue-700 underline">Developer Products</a></li>
-					<li><a href="/blog" class="text-blue-600 hover:text-blue-700 underline">Teaching and Learning</a></li>
-				</ul>
-
-				<p class="mt-8">
-					You can read my <a href="/blog" class="text-blue-600 hover:text-blue-700 underline">writing</a> or <a href="/projects" class="text-blue-600 hover:text-blue-700 underline">code</a>, or follow me <a href="https://twitter.com/rahmatjunaid" class="text-blue-600 hover:text-blue-700 underline">online</a>. I also <a href="/projects" class="text-blue-600 hover:text-blue-700 underline">make videos</a>, advise companies, and do angel investing. Reach out if interested.
+				<p class="text-gray-600">
+					To befriend me or hire me, reach out on <a href="https://www.linkedin.com/in/rahmat-junaid/" class="text-blue-600 underline decoration-blue-200 hover:decoration-blue-600 transition-all">LinkedIn</a>, <a href="https://twitter.com/thisis_rahmat" class="text-blue-600 underline decoration-blue-200 hover:decoration-blue-600 transition-all">X</a>, or by <a href="mailto:thisisrahmat@gmail.com" class="text-blue-600 underline decoration-blue-200 hover:decoration-blue-600 transition-all">email</a> —can't wait to meet you!
 				</p>
 			</div>
-		</div>
+		</section>
+
+		<!-- Now Section -->
+		<section class="mb-16">
+			<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+				Now
+			</h2>
+			<ul class="list-disc list-inside text-gray-600 space-y-2">
+				{nowContent.map(item => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</section>
+
+		<!-- Currently Reading Section -->
+		{currentBook && (
+			<section class="mb-16">
+				<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+					Currently Reading
+				</h2>
+				<div class="flex items-start gap-4 group">
+					<div class="w-16 sm:w-20 flex-shrink-0 shadow-sm rounded overflow-hidden bg-gray-100">
+						{currentBook.cover ? (
+							<img 
+								src={currentBook.cover} 
+								alt={currentBook.title} 
+								class="w-full h-auto object-cover aspect-[2/3]"
+							/>
+						) : (
+							<div class="w-full aspect-[2/3] flex items-center justify-center text-gray-400">
+								📖
+							</div>
+						)}
+					</div>
+					<div class="flex flex-col justify-center py-1">
+						<h3 class="text-base font-medium text-gray-900 leading-tight mb-1">
+							{currentBook.title}
+						</h3>
+						{currentBook.authors && currentBook.authors.length > 0 && (
+							<p class="text-sm text-gray-600">
+								by {currentBook.authors[0].name}
+							</p>
+						)}
+					</div>
+				</div>
+			</section>
+		)}
+		<!-- Writing Section -->
+		{posts.length > 0 && (
+			<section class="mb-16">
+				<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+					Writing
+				</h2>
+				<ul class="space-y-3">
+					{posts.map(post => (
+						<li>
+							<a href={`/blog/${post.slug}`} class="group flex items-baseline justify-between hover:text-blue-600 transition-colors">
+								<span class="text-base font-medium text-gray-900 group-hover:text-blue-600">
+									{post.title}
+								</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+
 	</div>
-
-	<script>
-		const CACHE_KEY = 'literal-currently-reading';
-		const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
-
-		async function loadLastBook() {
-			const titleElement = document.getElementById('last-book-title');
-			const authorElement = document.getElementById('last-book-author');
-
-			if (!titleElement || !authorElement) return;
-
-			try {
-				// Try to load from localStorage first
-				const cached = localStorage.getItem(CACHE_KEY);
-				if (cached) {
-					const { data, timestamp } = JSON.parse(cached);
-					const age = Date.now() - timestamp;
-
-					if (age < CACHE_DURATION && data.length > 0) {
-						const book = data[0].book;
-						titleElement.textContent = book.title;
-						authorElement.textContent = book.authors.map((author: any) => author.name).join(', ');
-						return;
-					}
-				}
-
-				// Fetch fresh data
-				const response = await fetch('/api/books?type=currently-reading');
-				if (!response.ok) {
-					throw new Error('Failed to fetch books');
-				}
-
-				let responseData = await response.json();
-
-				// Handle both array and object response formats
-				const currentlyReading = Array.isArray(responseData)
-					? responseData
-					: (responseData.currentlyReading || []);
-
-				// Cache the data
-				localStorage.setItem(CACHE_KEY, JSON.stringify({
-					data: currentlyReading,
-					timestamp: Date.now()
-				}));
-
-				if (currentlyReading.length > 0) {
-					const book = currentlyReading[0].book;
-					titleElement.textContent = book.title;
-					authorElement.textContent = book.authors.map((author: any) => author.name).join(', ');
-				} else {
-					titleElement.textContent = 'No book currently';
-					authorElement.textContent = '';
-				}
-			} catch (error) {
-				console.error('Error loading books:', error);
-
-				// Try to use stale cache as fallback
-				const cached = localStorage.getItem(CACHE_KEY);
-				if (cached) {
-					const { data } = JSON.parse(cached);
-					if (data.length > 0) {
-						const book = data[0].book;
-						titleElement.textContent = book.title;
-						authorElement.textContent = book.authors.map((author: any) => author.name).join(', ');
-					}
-				} else {
-					titleElement.textContent = 'unavailable';
-					authorElement.textContent = '';
-				}
-			}
-		}
-
-		// Load books when page is ready
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', loadLastBook);
-		} else {
-			loadLastBook();
-		}
-	</script>
-</Layout>

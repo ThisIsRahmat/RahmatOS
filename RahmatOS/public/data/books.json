@@ -1,25 +1,25 @@
 {
   "currentlyReading": [
     {
-      "id": "cmhbwzhf612471320humknv7k1n3",
+      "id": "cmia9dtan6469990htwpsv634mb",
       "status": "IS_READING",
-      "createdAt": "2025-10-29T11:30:41.010Z",
+      "createdAt": "2025-11-22T12:21:54.959Z",
       "book": {
-        "id": "cks6al8xi882244179839v5pev8",
-        "title": "Black Girls Must Die Exhausted",
-        "subtitle": "A Novel",
-        "description": "\"Both timely and enjoyable.\"--Kirkus Reviews The first novel in a captivating three-book series about modern womanhood, in which a young Black woman must rely on courage, laughter, and love--and the support of her two longtime friends--to overcome an unexpected setback that threatens the most precious thing she's ever wanted. Tabitha Walker is a black woman with a plan to \"have it all.\" At 33 years old, the checklist for the life of her dreams is well underway. Education? Check. Good job? Check. Down payment for a nice house? Check. Dating marriage material? Check, check, and check. With a coveted position as a local news reporter, a \"paper-perfect\" boyfriend, and even a standing Saturday morning appointment with a reliable hairstylist, everything seems to be falling into place. Then Tabby receives an unexpected diagnosis that brings her picture-perfect life crashing down, jeopardizing the keystone she took for granted: having children. With her dreams at risk of falling through the cracks of her checklist, suddenly she is faced with an impossible choice between her career, her dream home, and a family of her own. With the help of her best friends, the irreverent and headstrong Laila and Alexis, the mom jeans-wearing former \"Sexy Lexi,\" and the generational wisdom of her grandmother and the nonagenarian firebrand Ms. Gretchen, Tabby explores the reaches of modern medicine and tests the limits of her relationships, hoping to salvage the future she always dreamed of. But the fight is all consuming, demanding a steep price that forces an honest reckoning for nearly everyone in her life. As Tabby soon learns, her grandmother's age-old adage just might still be true: Black girls must die exhausted.",
-        "isbn10": "0063137909",
-        "isbn13": "9780063137905",
+        "id": "ckrpzkjfu8503891czqn0lo0epo",
+        "title": "How Asia Works",
+        "subtitle": "Success and Failure in the World's Most Dynamic Region",
+        "description": "A freelance journalist in Asia and founding editor of China Economic Quarterly presents a detailed analysis of why the economies of some Asian countries have flourished while others have declined. 20,000 first printing.",
+        "isbn10": "080211959X",
+        "isbn13": "9780802119599",
         "language": "en",
-        "pageCount": 352,
-        "publishedDate": "2021-07-27T00:00:00.000Z",
-        "publisher": "Harper Perennial",
-        "cover": "https://assets.literal.club/4/cks6al8xi882244179839v5pev8.jpg",
+        "pageCount": 366,
+        "publishedDate": "2013-01-01T00:00:00.000Z",
+        "publisher": null,
+        "cover": "https://assets.literal.club/2/ckrpzkjfu8503891czqn0lo0epo.jpg",
         "authors": [
           {
-            "id": "ckrtpygn12475381ev5gxlohfqy",
-            "name": "Jayne Allen"
+            "id": "ckrjp08xo2547201gudp4jlffpp",
+            "name": "Joe Studwell"
           }
         ]
       }
@@ -75640,7 +75640,31 @@
           }
         ]
       }
+    },
+    {
+      "id": "cmhv8bndj8425230gwb6kqhv0b6",
+      "status": "FINISHED",
+      "createdAt": "2025-11-11T23:55:41.719Z",
+      "book": {
+        "id": "ckrz0x4j79332941798ek7djp00",
+        "title": "When Stars Collide",
+        "subtitle": "A Chicago Stars Novel",
+        "description": "#1 New York Times bestseller Susan Elizabeth Phillips returns to her beloved Chicago Stars series with a romance between a Chicago Stars quarterback and one of the world's greatest opera singers--and a major diva. \"Re-entering the world of the Chicago Stars is like a beloved friend come to call.\" -- #1 New York Times bestselling author Robyn Carr Thaddeus Walker Bowman Owens, the backup quarterback for the Chicago Stars, is a team player, talented sideline coach, occasional male underwear model, and a man with a low tolerance for Divas. Olivia Shore, international opera superstar, is a driven diva with a passion for perfection, a craving for justice, too many secrets--and a monumental grudge against the egotistical, lowbrow jock she's been stuck with. It's Mozart meets Monday Night Football as the temperamental soprano and stubborn jock embark on a nationwide tour promoting a luxury watch brand. Along the way, the combatants will engage in soul-searching and trash talk, backstage drama and, for sure, a quarterback pass. But they'll also face trouble as threatening letters, haunting photographs, and a series of dangerous encounters complicate their lives. Is it the work of an overzealous fan or something more sinister? This is the emotional journey of a brilliant woman whose career is everything and a talented man who'll never be happy with second place. Tender and funny, passionate and insightful, this irresistible romantic adventure proves that anything can happen...when two superstars collide.",
+        "isbn10": "0062973088",
+        "isbn13": "9780062973085",
+        "language": "en",
+        "pageCount": 384,
+        "publishedDate": "2021-06-29T00:00:00.000Z",
+        "publisher": "William Morrow",
+        "cover": "https://assets.literal.club/4/ckrz0x4j79332941798ek7djp00.jpg",
+        "authors": [
+          {
+            "id": "cklv9ugvb91751hakqk9p0dgk",
+            "name": "Susan Elizabeth Phillips"
+          }
+        ]
+      }
     }
   ],
-  "lastUpdated": "2025-10-30T11:12:21.299Z"
+  "lastUpdated": "2025-11-22T12:48:18.842Z"
 }

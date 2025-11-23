@@ -10,6 +10,7 @@
     "fetch-books": "tsx scripts/fetch-books.ts"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.10",
     "@astrojs/netlify": "^6.6.0",
     "@astrojs/react": "^4.4.1",
     "@sanity/client": "^7.12.0",
@@ -26,6 +27,7 @@
     "@types/node": "^22.0.0",
     "dotenv": "^16.4.7",
     "tailwindcss": "^3.4.18",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.2",
+    "wrangler": "^4.45.3"
   }
 }

@@ -1,4 +1,10 @@
-# Astro Starter Kit: Minimal
+# Run the project in development
+
+npx wrangler pages dev
+
+# Deploy the project
+
+npx wrangler pages deploy
 
 ```sh
 npm create astro@latest -- --template minimal
