@@ -14,11 +14,15 @@ config();
 async function fetchAndCacheBooks() {
   console.log('🔄 Fetching books from Literal.club...');
 
+  // Debug: Print available environment keys (hiding values)
+  console.log('Environment keys available:', Object.keys(process.env).join(', '));
+
   const token = process.env.LITERAL_TOKEN;
 
   if (!token) {
-    console.error('❌ LITERAL_TOKEN not found in environment variables');
-    process.exit(1);
+    console.warn('⚠️ LITERAL_TOKEN not found in environment variables. Skipping book fetch.');
+    // Exit successfully so the build doesn't fail
+    process.exit(0);
   }
 
   try {
