@@ -66,40 +66,6 @@ try {
 			</div>
 		</section>
 
-	<!--
-		<!-- Currently Reading Section -->
-		{currentBook && (
-			<section class="mb-16">
-				<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
-					Currently Reading
-				</h2>
-				<div class="flex items-start gap-4 group">
-					<div class="w-16 sm:w-20 flex-shrink-0 shadow-sm rounded overflow-hidden bg-gray-100">
-						{currentBook.cover ? (
-							<img 
-								src={currentBook.cover} 
-								alt={currentBook.title} 
-								class="w-full h-auto object-cover aspect-[2/3]"
-							/>
-						) : (
-							<div class="w-full aspect-[2/3] flex items-center justify-center text-gray-400">
-								📖
-							</div>
-						)}
-					</div>
-					<div class="flex flex-col justify-center py-1">
-						<h3 class="text-base font-medium text-gray-900 leading-tight mb-1">
-							{currentBook.title}
-						</h3>
-						{currentBook.authors && currentBook.authors.length > 0 && (
-							<p class="text-sm text-gray-600">
-								by {currentBook.authors[0].name}
-							</p>
-						)}
-					</div>
-				</div>
-			</section>
-		)}  -->
 		<!-- Writing Section -->
 		{posts.length > 0 && (
 			<section class="mb-16">
