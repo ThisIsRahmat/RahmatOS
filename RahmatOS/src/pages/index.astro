@@ -17,11 +17,6 @@ try {
   // Posts will remain empty array, Writing section won't show
 }
 
-let nowContent = [
-  "Pursuing my MSc in AI",
-  "Planning to launch a newsletter/podcast all about AI next summer", 
-  "Trying to read 30 books a year",
-];
 
 // Fetch currently reading from local JSON
 import * as fs from 'fs';
@@ -71,18 +66,7 @@ try {
 			</div>
 		</section>
 
-		<!-- Now Section -->
-		<section class="mb-16">
-			<h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
-				Now
-			</h2>
-			<ul class="list-disc list-inside text-gray-600 space-y-2">
-				{nowContent.map(item => (
-					<li>{item}</li>
-				))}
-			</ul>
-		</section>
-
+	<!--
 		<!-- Currently Reading Section -->
 		{currentBook && (
 			<section class="mb-16">
@@ -115,7 +99,7 @@ try {
 					</div>
 				</div>
 			</section>
-		)}
+		)}  -->
 		<!-- Writing Section -->
 		{posts.length > 0 && (
 			<section class="mb-16">
